@@ -1,5 +1,10 @@
+.container-fluid {
+    max-height: 100vh;
+    overflow-y: scroll;
+}
+
 p {
-    border: 1px solid black;
+    /* border: 1px solid black; */
     width: 100%;
 }
 
@@ -7,6 +12,42 @@ div {
     border: 1px solid blue;
 }
 
+.row {
+    margin: 0px 3px 10px 3px;
+}
+
+.main div {
+    margin: 0;
+}
+
 .test {
     width: 100%;
+}
+
+.x1 {
+    height: calc(100vh/12);
+}
+
+.x3 {
+    height: calc((100vh/12)*3);
+}
+
+.x4 {
+    height: calc((100vh/12)*4);
+}
+
+.x5 {
+    height: calc((100vh/12)*5);
+}
+
+.x9 {
+    height: calc((100vh/12)*9);
+}
+
+.x10 {
+    height: calc((100vh/12)*10);
+}
+
+.x11 {
+    height: calc((100vh/12)*11);
 }
