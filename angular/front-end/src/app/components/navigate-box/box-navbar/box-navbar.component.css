@@ -1,0 +1,12 @@
+.bold {
+    font-weight: bold;
+}
+
+hr {
+    margin-top: -5px;
+    width: 100%;
+}
+
+div {
+    flex-direction: column;
+}
