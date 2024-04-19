@@ -1,0 +1,50 @@
+.leftSide {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+}
+
+.leftSide p {
+    border-left: solid 1px whitesmoke;
+    /* padding-left: 10px; */
+    color: whitesmoke;
+    font-size: large;
+}
+
+.basketBox{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: xx-large;
+}
+
+ul {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-size: larger;
+}
+
+i {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+i > p{
+    position: absolute;
+    /* top: 10px; */
+    font-weight: 700;
+}
+
+.red {
+    color: red;
+}
+
+.green {
+    color: greenyellow;
+}
+
+nav {
+    height: calc(100vh/14);
+}

@@ -11,13 +11,14 @@ import { SavingThrowsComponent } from './components/saving-throws/saving-throws.
 import { SensesComponent } from './components/senses/senses.component';
 import { SingleStatsComponent } from './components/single-stats/single-stats.component';
 import { SkillsComponent } from './components/skills/skills.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [CommonModule, RouterOutlet, BaseStatsComponent,ConditionsListComponent,HitPointsComponent,
     MainNavbarComponent, NavigateBoxComponent, ProficienciesLangugesComponent, SavingThrowsComponent,
-    SensesComponent, SingleStatsComponent, SkillsComponent
+    SensesComponent, SingleStatsComponent, SkillsComponent, NavbarComponent
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'

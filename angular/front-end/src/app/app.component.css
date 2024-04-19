@@ -4,16 +4,13 @@
 }
 
 p {
-    /* border: 1px solid black; */
     width: 100%;
-}
-
-div {
-    border: 1px solid blue;
+    height: 90%;
 }
 
 .row {
-    margin: 0px 3px 10px 3px;
+    padding: 0;
+    /* margin-bottom: 5px; */
 }
 
 .main div {
@@ -26,28 +23,35 @@ div {
 
 .x1 {
     height: calc(100vh/12);
+    max-height: calc(100vh/12);
 }
 
 .x3 {
     height: calc((100vh/12)*3);
+    max-height: calc((100vh/12)*3);
 }
 
 .x4 {
     height: calc((100vh/12)*4);
+    max-height: calc((100vh/12)*4);
 }
 
 .x5 {
     height: calc((100vh/12)*5);
+    max-height: calc((100vh/12)*5);
 }
 
 .x9 {
     height: calc((100vh/12)*9);
+    max-height: calc((100vh/12)*9);
 }
 
 .x10 {
     height: calc((100vh/12)*10);
+    max-height: calc((100vh/12)*10);
 }
 
 .x11 {
     height: calc((100vh/12)*11);
+    max-height: calc((100vh/12)*11);
 }

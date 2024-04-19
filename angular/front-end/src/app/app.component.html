@@ -1,7 +1,7 @@
 
 <div class="container-fluid">
-    <div class="row navbar">
-
+    <div class="row navbar x1">
+        <app-navbar></app-navbar>
     </div>
     <div class="row stats x1">
         <div class="col-1">
@@ -35,13 +35,13 @@
             <p>test</p>
         </div>
     </div>
-    <div class="row main">
+    <div class="row main x10">
         <div class="col-3">
             <div class="row x3">
-                <app-test1></app-test1>
+                <p>1</p>
             </div>
             <div class="row x3">
-                <app-test2></app-test2>
+                <p>2</p>
             </div>
             <div class="row x4">
                 <p>3</p>
@@ -61,6 +61,4 @@
     </div>
 </div>
 
-<app-base-stats></app-base-stats>
-<app-conditions-list></app-conditions-list>
 <router-outlet></router-outlet>
