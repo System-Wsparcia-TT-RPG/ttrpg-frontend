@@ -4,70 +4,78 @@
         <app-navbar></app-navbar>
     </div>
     <div class="row stats x1">
-        <div class="col-1">
-            <p>test</p>
-        </div>
-        <div class="col-1">
-            <p>test</p>
-        </div>
-        <div class="col-1">
-            <p>test</p>
-        </div>
-        <div class="col-1">
-            <p>test</p>
-        </div>
-        <div class="col-1">
-            <p>test</p>
-        </div>
-        <div class="col-1">
-            <p>test</p>
-        </div>
-        <div class="col-1">
-            <p>test</p>
-        </div>
-        <div class="col-1">
-            <p>test</p>
-        </div>
-        <div class="col-1">
-            <p>test</p>
-        </div>
-        <div class="col-3">
-            <p>test</p>
-        </div>
+        <!-- base stats start -->
+        <app-base-stats class="col-1">
+        </app-base-stats>
+
+        <app-base-stats class="col-1">
+        </app-base-stats>
+
+        <app-base-stats class="col-1">
+        </app-base-stats>
+
+        <app-base-stats class="col-1">
+        </app-base-stats>
+
+        <app-base-stats class="col-1">
+        </app-base-stats>
+
+        <app-base-stats class="col-1">
+        </app-base-stats>
+        <!-- base stats ends -->
+
+        <app-single-stats class="col-1">
+        </app-single-stats>
+
+        <app-single-stats class="col-1">
+        </app-single-stats>
+
+        <app-single-stats class="col-1">
+        </app-single-stats>
+
+        <app-hit-points class="col-3">
+        </app-hit-points>
+
+
     </div>
     <div class="row main x10">
         <div class="col-3">
-            <div class="row x3">
-                <p>1</p>
-            </div>
-            <div class="row x3">
-                <p>2</p>
-            </div>
-            <div class="row x4">
-                <p>3</p>
-            </div>
+
+            <app-saving-throws class="row x3">
+            </app-saving-throws>
+
+            <app-senses class="row x3">
+            </app-senses>
+
+            <app-proficiencies-languges class="row x4">
+            </app-proficiencies-languges>
+
         </div>
-        <div class="col-3 x10">
-            <p>big one</p>
-        </div>
+
+        <app-skills class="col-3 x10">
+        </app-skills>
+        
         <div class="col-6">
             <div class="row x1">
-                <div class="col-3">
-                    <p>11</p>
-                </div>
-                <div class="col-3">
-                    <p>12</p>
-                </div>
-                <div class="col-3">
-                    <p>13</p>
-                </div>
-                <div class="col-3">
-                    <p>14</p>
-                </div>
+
+                <app-single-stats class="col-2">
+                </app-single-stats>
+
+                <app-single-stats class="col-2">
+                </app-single-stats>
+
+                <app-conditions-list class="col-4">
+                </app-conditions-list>
+
+                <app-conditions-list class="col-4">
+                </app-conditions-list>
+                
             </div>
+
             <div class="row x9">
                 <app-navigate-box></app-navigate-box>
             </div>
+
         </div>
     </div>
 </div>
