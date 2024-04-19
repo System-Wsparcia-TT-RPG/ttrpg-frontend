@@ -1,0 +1,12 @@
+p {
+    border: 1px solid black;
+    width: 100%;
+}
+
+div {
+    border: 1px solid blue;
+}
+
+.test {
+    width: 100%;
+}
