@@ -7,10 +7,12 @@ import { Observable } from 'rxjs';
 })
 export class FetchStaticDataService {
 
+  private dataUrl = 'assets/example_character.json'; // Path to the JSON file in the assets folder
+
   constructor(private http: HttpClient) { }
 
   getJsonData(): Observable<any> {
     // Adjust the path to where your JSON file is stored
-    return this.http.get('/assets/example_character.json');
+    return this.http.get(this.dataUrl);
   }
 }

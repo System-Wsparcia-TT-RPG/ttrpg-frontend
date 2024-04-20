@@ -1,7 +1,7 @@
 <h2>Character Senses</h2>
 
 
-<pre>
-    Player nick name is  {{ character.nickname }}  
-    Character sense darvision is {{ character.race.senses.darkvision }}
+<pre *ngIf="character">
+    Player nick name is  {{ character?.nickname }}  
+    Character sense darvision is {{ character?.race?.senses?.darkvision }}
 </pre>

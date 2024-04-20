@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { FetchStaticDataService } from '../../services/fetch-static-data.service';
+import { CommonModule } from '@angular/common'; // Import CommonModule
 
 @Component({
   selector: 'app-senses',
   standalone: true,
-  imports: [HttpClientModule], 
+  imports: [HttpClientModule, CommonModule ], 
   templateUrl: './senses.component.html',
   styleUrls: ['./senses.component.css']
 })

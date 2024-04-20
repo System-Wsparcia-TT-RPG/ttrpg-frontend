@@ -12,6 +12,8 @@ import { SingleStatsComponent } from './components/single-stats/single-stats.com
 import { SkillsComponent } from './components/skills/skills.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 
+import { FetchStaticDataService } from './services/fetch-static-data.service';
+
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -24,4 +26,22 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 })
 export class AppComponent {
   title = 'front-end';
+
+  character: any; // This will hold the fetched data
+
+  constructor(private dataService: FetchStaticDataService) {}
+
+  ngOnInit() {
+    this.dataService.getJsonData().subscribe({
+      next: (data) => {
+        this.character = data;
+        console.log(this.character)
+      },
+      error: (err) => {
+        console.error('Failed to load character data:', err);
+      }
+    });
+  }
+
+
 }

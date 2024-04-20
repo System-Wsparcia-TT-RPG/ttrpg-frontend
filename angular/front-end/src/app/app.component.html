@@ -5,23 +5,20 @@
     </div>
     <div class="row stats x1">
         <!-- base stats start -->
-        <app-base-stats class="col-1">
-        </app-base-stats>
 
-        <app-base-stats class="col-1">
-        </app-base-stats>
 
-        <app-base-stats class="col-1">
-        </app-base-stats>
+        <app-base-stats [description]="'Strength'" [value]="character?.AbilityScores?.STR" class="col-1"></app-base-stats>
 
-        <app-base-stats class="col-1">
-        </app-base-stats>
+        <app-base-stats [description]="'Dexterity'" [value]="character?.AbilityScores?.DEX" class="col-1"></app-base-stats>
 
-        <app-base-stats class="col-1">
-        </app-base-stats>
+        <app-base-stats [description]="'Concentration'" [value]="character?.AbilityScores?.CON" class="col-1"></app-base-stats>
 
-        <app-base-stats class="col-1">
-        </app-base-stats>
+        <app-base-stats [description]="'Inteligence'" [value]="character?.AbilityScores?.INT" class="col-1"></app-base-stats>
+
+        <app-base-stats [description]="'Wisdom'" [value]="character?.AbilityScores?.WIS" class="col-1"></app-base-stats>
+
+        <app-base-stats [description]="'Charisma'" [value]="character?.AbilityScores?.CHA" class="col-1"></app-base-stats>
+
         <!-- base stats ends -->
 
         <app-single-stats class="col-1">

@@ -1,0 +1,11 @@
+
+*{
+    font-size: 1vh;
+}
+span {
+    display: flex;       /* Enables flexbox */
+    align-items: center; /* Vertically center the items */
+    justify-content: center; /* Center the items horizontally */
+  }
+
+  
