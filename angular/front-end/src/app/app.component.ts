@@ -35,7 +35,6 @@ export class AppComponent {
     this.dataService.getJsonData().subscribe({
       next: (data) => {
         this.character = data;
-        console.log(this.character)
       },
       error: (err) => {
         console.error('Failed to load character data:', err);
