@@ -1,1 +1,8 @@
 <p>proficiencies-languges works!</p>
+
+<pre *ngIf="character">
+    Player nick name is  {{ character[0]?.data?.nickname }}  
+        <div *ngFor="let proficiency of character[0].data.weapon_proficiencies">
+            Character weapon proficiency is {{ proficiency }}
+        </div>
+</pre>
