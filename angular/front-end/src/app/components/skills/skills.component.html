@@ -1,1 +1,18 @@
-<p>skills works!</p>
+<table class="skills-table">
+    <thead>
+        <tr>
+            <th>Prof</th>
+            <th>Mod</th>
+            <th>Skill</th>
+            <th>Bonus</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of skills | keyvalue">
+            <td>-</td>
+            <td>-</td>
+            <td>{{item.key}}</td>
+            <td>{{item.value}}</td>
+        </tr>
+    </tbody>
+</table>

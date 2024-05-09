@@ -10,3 +10,7 @@ hr {
 div {
     flex-direction: column;
 }
+
+li {
+    cursor: pointer;
+}

@@ -1,1 +1,18 @@
-<p>spells works!</p>
+<table class="spells-table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Time</th>
+            <th>Range</th>
+            <th>Effect</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let spell of spells">
+            <td>{{spell.name}}</td>
+            <td>{{spell.casting_time}}</td>
+            <td>{{spell.range_area}}</td>
+            <td>{{spell.damage_effect}}</td>
+        </tr>
+    </tbody>
+</table>
