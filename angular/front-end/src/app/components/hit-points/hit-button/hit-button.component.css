@@ -1,0 +1,14 @@
+button {
+    border-radius: 15px;
+    border: 1px solid black;
+    padding: 2px 12px;
+    height: 90%;
+}
+
+p {
+    border: none;
+    margin: 0;
+    height: 90%;
+    font-weight: bold;
+    font-size: 0.7em;
+}

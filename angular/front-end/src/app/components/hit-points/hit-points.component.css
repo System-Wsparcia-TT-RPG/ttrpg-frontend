@@ -1,0 +1,48 @@
+main {
+    display: flex!important;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    border: none;
+}
+
+app-hit-button {
+    width: 100%;
+}
+
+.stat {
+    width: 22%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.stat-name {
+    font-weight: bold;
+}
+
+.stat-value {
+    width: 50%;
+    border: 1px solid black;
+    border-radius: 100%;
+    text-align: center;
+}
+
+.stat-value > p {
+    margin-bottom: 2px;
+}
+
+.buttons {
+    width: 22%;
+    height: 100%;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center;
+    align-items: center; */
+}
+
+p {
+    border: none;
+}
