@@ -8,7 +8,7 @@ import { catchError } from 'rxjs/operators';
 })
 export class CharacterDataService {
 
-  private dataUrl = 'http://localhost:8000/api/characters/'; // API endpoint
+  private dataUrl = 'http://localhost:8000/api/character/all/'; // API endpoint
 
   constructor(private http: HttpClient) { }
 
