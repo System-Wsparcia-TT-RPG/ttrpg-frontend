@@ -17,13 +17,13 @@ export class SpellsComponent {
 
   ngOnInit(): void {
     this.characterDataService.getCharacters().subscribe({
-          next: (data) => {
-            this.spells = data.characters[0].data.spells;
-            console.log(this.spells);
-          },
-          error: (err) => {
-            console.error('Failed to fetch spells data', err);
-          }
+      next: (data) => {
+        this.spells = data.characters[0].spells;
+        console.log(this.spells);
+      },
+      error: (err) => {
+        console.error('Failed to fetch spells data', err);
+      }
     });
   }
 

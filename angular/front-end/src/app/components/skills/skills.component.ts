@@ -17,7 +17,7 @@ export class SkillsComponent {
   ngOnInit(): void {
     this.characterDataService.getCharacters().subscribe({
           next: (data) => {
-            this.skills = data.characters[0].data.Skills;
+            this.skills = data.characters[0].Skills;
             console.log(this.skills);
           },
           error: (err) => {
