@@ -57,11 +57,18 @@ p {
     max-height: calc((100vh/12)*11);
 }
 
+.x0 {
+    background-image: url("/assets/background.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
 .x1, .x3, .x4, .x5, .x9, .x10, .x11 {
     /* width: 100%; */
     margin: 0;
-    background-color: #f0f0f0;
-    color: #333;
+    /* background-color: #f0f0f0; */
+    color: #0c0c0c;
     /* padding: 10px;  */
 }
 
