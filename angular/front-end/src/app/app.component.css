@@ -57,11 +57,19 @@ p {
     max-height: calc((100vh/12)*11);
 }
 
-.x0 {
+.main-container {
     background-image: url("/assets/background.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
+}
+.saving-throws,
+.senses,
+.prof-lang,
+.skills,
+.navigate-box {
+    border: 20px solid transparent;
+    border-image: url("/assets/ramka.png") stretch 80;
 }
 
 .x1, .x3, .x4, .x5, .x9, .x10, .x11 {
