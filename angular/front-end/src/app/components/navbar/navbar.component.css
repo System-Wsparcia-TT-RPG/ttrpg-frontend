@@ -48,3 +48,10 @@ i > p{
 nav {
     height: calc(100vh/14);
 }
+
+.bg-custom {
+    background-image: url("/assets/drewno.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
