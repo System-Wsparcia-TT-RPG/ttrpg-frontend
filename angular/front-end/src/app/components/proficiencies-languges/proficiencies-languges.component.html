@@ -2,7 +2,7 @@
 
 <pre *ngIf="character">
     Player nick name is  {{ character[0]?.nickname }}  
-        <div *ngFor="let proficiency of character[0].weapon_proficiencies">
+        <div *ngFor="let proficiency of character[0]?.weapon_proficiencies">
             Character weapon proficiency is {{ proficiency }}
         </div>
 </pre>

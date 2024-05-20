@@ -3,6 +3,6 @@ import { NavigateBoxComponent } from './components/navigate-box/navigate-box.com
 
 export const routes: Routes = [
     {path: 'browse', component: NavigateBoxComponent},
-    {path: '', redirectTo:'/home', pathMatch:'full'},
-    {path: '**', redirectTo:'/home'}
+    {path: '', redirectTo:'', pathMatch:'full'},
+    {path: '**', redirectTo:''}
 ];
