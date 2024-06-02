@@ -15,7 +15,7 @@ export class SkillsComponent {
   constructor(private characterDataService: CharacterDataService) { }
 
   ngOnInit(): void {
-    this.characterDataService.getCharacters().subscribe({
+    this.characterDataService.getCharacter(1).subscribe({
           next: (data) => {
             this.skills = data.characters[0].Skills;
             console.log(this.skills);

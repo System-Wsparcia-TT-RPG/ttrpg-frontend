@@ -8,7 +8,7 @@ import { catchError } from 'rxjs/operators';
 })
 export class CharacterDataService {
 
-  private dataUrl = 'http://localhost:8000/api/character/all/'; // API endpoint
+  private dataUrl = 'http://localhost:8000/api/character/all'; // API endpoint
 
   constructor(private http: HttpClient) { }
 
@@ -18,6 +18,16 @@ export class CharacterDataService {
         catchError(error => {
           console.error('Error fetching characters:', error);
           throw 'Error fetching characters, see console';
+        })
+      );
+  }
+
+  getCharacter(id: number): Observable<any> {
+    return this.http.get(`http://localhost:8000/api/character/${id}/2/`)
+      .pipe(
+        catchError(error => {
+          console.error('Error fetching character:', error);
+          throw 'Error fetching character, see console';
         })
       );
   }

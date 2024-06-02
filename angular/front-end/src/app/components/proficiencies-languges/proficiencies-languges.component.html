@@ -1,8 +1,43 @@
-<p>proficiencies-languges works!</p>
-
-<pre *ngIf="character">
-    Player nick name is  {{ character[0]?.nickname }}  
-        <div *ngFor="let proficiency of character[0]?.weapon_proficiencies">
-            Character weapon proficiency is {{ proficiency }}
+<ng-container *ngIf="character">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <table class="table table-bordered custom_table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Armor Proficiencies</th>
+                            <th scope="col">Weapon Proficiencies</th>
+                            <th scope="col">Tool Proficiencies</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div class="scrollable">
+                                    <ul class="list-unstyled">
+                                        <li *ngFor="let proficiency of character.armor_proficiencies" class="text-truncate">{{ proficiency }}</li>
+                                    </ul>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="scrollable">
+                                    <ul class="list-unstyled">
+                                        <li *ngFor="let proficiency of character.weapon_proficiencies" class="text-truncate">{{ proficiency }}</li>
+                                    </ul>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="scrollable">
+                                    <ul class="list-unstyled">
+                                        <li *ngFor="let proficiency of character.tool_proficiencies" class="text-truncate">{{ proficiency }}</li>
+                                    </ul>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
-</pre>
+    </div>
+</ng-container>
+

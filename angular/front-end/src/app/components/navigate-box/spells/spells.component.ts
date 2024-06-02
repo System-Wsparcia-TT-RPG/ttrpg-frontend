@@ -16,7 +16,7 @@ export class SpellsComponent {
   constructor(private characterDataService: CharacterDataService) { }
 
   ngOnInit(): void {
-    this.characterDataService.getCharacters().subscribe({
+    this.characterDataService.getCharacter(1).subscribe({
       next: (data) => {
         this.spells = data.characters[0].spells;
         console.log(this.spells);

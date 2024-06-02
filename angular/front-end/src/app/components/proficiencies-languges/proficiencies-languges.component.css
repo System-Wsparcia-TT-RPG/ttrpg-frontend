@@ -1,0 +1,18 @@
+.scrollable {
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.custom_table {
+    color: black;
+    border-color: transparent;
+}
+
+.custom_table th {
+    background-color: transparent;
+    color: black;
+}
+
+.custom_table td {
+    background-color: transparent;
+}
