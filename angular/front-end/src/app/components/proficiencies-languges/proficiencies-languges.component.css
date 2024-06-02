@@ -4,6 +4,8 @@
 }
 
 .custom_table {
+    max-width: 100%;
+    table-layout: fixed;
     color: black;
     border-color: transparent;
 }
