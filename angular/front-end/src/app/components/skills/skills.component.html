@@ -8,15 +8,108 @@
         </tr>
     </thead>
     <tbody>
-        <ng-container *ngFor="let item of skills | keyvalue">
-            <ng-container *ngIf="item.key !== 'id'">
-                <tr>
-                    <td>-</td>
-                    <td>-</td>
-                    <td>{{item.key}}</td>
-                    <td>{{item.value}}</td>
-                </tr>
-            </ng-container>
-        </ng-container>
+        <tr>
+            <td><input type="checkbox" [(ngModel)]="selectedSkills.athletics"></td>
+            <td>STR</td>
+            <td>Athletics</td>
+            <td>{{ skills['athletics'] }}</td>
+        </tr>
+        <tr>
+            <td><input type="checkbox" [(ngModel)]="selectedSkills.acrobatics"></td>
+            <td>DEX</td>
+            <td>Acrobatics</td>
+            <td>{{ skills['acrobatics'] }}</td>
+        </tr>
+        <tr>
+            <td><input type="checkbox" [(ngModel)]="selectedSkills.sleight_of_hand"></td>
+            <td>DEX</td>
+            <td>Sleight of hand</td>
+            <td>{{ skills['sleight_of_hand'] }}</td>
+        </tr>
+        <tr>
+            <td><input type="checkbox" [(ngModel)]="selectedSkills.stealth"></td>
+            <td>DEX</td>
+            <td>Stealth</td>
+            <td>{{ skills['stealth'] }}</td>
+        </tr>
+        <tr>
+            <td><input type="checkbox" [(ngModel)]="selectedSkills.animal_handling"></td>
+            <td>WIS</td>
+            <td>Animal Handling</td>
+            <td>{{ skills['animal_handling'] }}</td>
+        </tr>
+        <tr>
+            <td><input type="checkbox" [(ngModel)]="selectedSkills.medicine"></td>
+            <td>WIS</td>
+            <td>Medicine</td>
+            <td>{{ skills['medicine'] }}</td>
+        </tr>
+        <tr>
+            <td><input type="checkbox" [(ngModel)]="selectedSkills.perception"></td>
+            <td>WIS</td>
+            <td>Perception</td>
+            <td>{{ skills['perception'] }}</td>
+        </tr>
+        <tr>
+            <td><input type="checkbox" [(ngModel)]="selectedSkills.survival"></td>
+            <td>WIS</td>
+            <td>Survival</td>
+            <td>{{ skills['survival'] }}</td>
+        </tr>
+
+        <tr>
+            <td><input type="checkbox" [(ngModel)]="selectedSkills.arcana"></td>
+            <td>INT</td>
+            <td>Arcana</td>
+            <td>{{ skills['arcana'] }}</td>
+        </tr>
+        <tr>
+            <td><input type="checkbox" [(ngModel)]="selectedSkills.history"></td>
+            <td>INT</td>
+            <td>History</td>
+            <td>{{ skills['history'] }}</td>
+        </tr>
+        <tr>
+            <td><input type="checkbox" [(ngModel)]="selectedSkills.investigation"></td>
+            <td>INT</td>
+            <td>Investigation</td>
+            <td>{{ skills['investigation'] }}</td>
+        </tr>
+        <tr>
+            <td><input type="checkbox" [(ngModel)]="selectedSkills.nature"></td>
+            <td>INT</td>
+            <td>Nature</td>
+            <td>{{ skills['nature'] }}</td>
+        </tr>
+        <tr>
+            <td><input type="checkbox" [(ngModel)]="selectedSkills.religion"></td>
+            <td>INT</td>
+            <td>Religion</td>
+            <td>{{ skills['religion'] }}</td>
+        </tr>
+        <tr>
+            <td><input type="checkbox" [(ngModel)]="selectedSkills.deception"></td>
+            <td>CHA</td>
+            <td>Deception</td>
+            <td>{{ skills['deception'] }}</td>
+        </tr>
+        <tr>
+            <td><input type="checkbox" [(ngModel)]="selectedSkills.intimidation"></td>
+            <td>CHA</td>
+            <td>Intimidation</td>
+            <td>{{ skills['intimidation'] }}</td>
+        </tr>
+        <tr>
+            <td><input type="checkbox" [(ngModel)]="selectedSkills.performance"></td>
+            <td>CHA</td>
+            <td>Performance</td>
+            <td>{{ skills['performance'] }}</td>
+        </tr>
+        <tr>
+            <td><input type="checkbox" [(ngModel)]="selectedSkills.persuasion"></td>
+            <td>CHA</td>
+            <td>Persuasion</td>
+            <td>{{ skills['persuasion'] }}</td>
+        </tr>
     </tbody>
 </table>

@@ -19,7 +19,6 @@ export class SpellsComponent {
     this.characterDataService.getCharacter(1).subscribe({
       next: (data) => {
         this.spells = data[0].spells;
-        console.log(this.spells);
       },
       error: (err) => {
         console.error('Failed to fetch spells data', err);
