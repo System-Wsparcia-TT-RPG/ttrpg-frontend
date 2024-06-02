@@ -18,7 +18,7 @@ export class SpellsComponent {
   ngOnInit(): void {
     this.characterDataService.getCharacter(1).subscribe({
       next: (data) => {
-        this.spells = data.characters[0].spells;
+        this.spells = data[0].spells;
         console.log(this.spells);
       },
       error: (err) => {
