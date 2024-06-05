@@ -1,0 +1,25 @@
+.styled-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #3819e9;
+    border-radius: 10px;
+    font-family: Arial, sans-serif;
+    background: white;
+    /* box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2); */
+    text-align: center;
+}
+
+.description-top {
+    font-weight: bold;
+    color: #555;
+}
+
+
+
+.description-bottom {
+    font-size: 10px;
+    color: #555;
+}
+

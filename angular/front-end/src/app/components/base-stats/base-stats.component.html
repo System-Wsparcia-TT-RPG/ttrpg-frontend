@@ -1,8 +1,12 @@
-<pre>
-        {{ description }} 
-<span>
-<button (click)="decrementValue()">-</button>
-<button (click)="incrementValue()">+</button>
-</span>
-            {{  value }}
-</pre>
+<div class="stat-box">
+        <div class="description">{{ description }}</div>
+        <div class="value-total">
+            <div class="value">{{ value }}</div>
+            <div class="total">{{ total }}</div>
+        </div>
+        <div class="buttons">
+            <button (click)="decrementValue()">-</button>
+            <button (click)="incrementValue()">+</button>
+        </div>
+    </div>
+    
