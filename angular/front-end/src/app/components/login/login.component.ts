@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-login',
@@ -17,6 +18,7 @@ export class LoginComponent {
 
   constructor(
     private fb: FormBuilder,
+    private userService: UserService,
   ) {
     this.loginForm = this.fb.group({
       username: ['', Validators.required],
@@ -29,7 +31,16 @@ export class LoginComponent {
       const userData = this.loginForm.value;
       const userName = userData.username;
       const password = userData.password;
-      // TODO: Implement login logic
+      this.userService.login(userName, password).subscribe(
+        response => {
+          console.log(response);
+          // Przekierowanie
+        },
+        error => {
+          console.error('Error: ', error);
+          // Obsługa błędu
+        }
+      );
     }
   }
 }

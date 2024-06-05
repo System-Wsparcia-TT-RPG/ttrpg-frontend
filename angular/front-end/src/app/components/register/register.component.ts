@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-register',
@@ -17,6 +18,7 @@ export class RegisterComponent {
 
   constructor(
     private fb: FormBuilder,
+    private userService: UserService,
   ) {
     this.registerForm = this.fb.group({
       username: ['', Validators.required],
@@ -31,7 +33,16 @@ export class RegisterComponent {
       const uusername = userData.username;
       const email = userData.email;
       const password = userData.password;
-      // TODO: Implement register logic
+      this.userService.register(uusername, email, password).subscribe(
+        response => {
+          console.log(response);
+          // Przekierowanie
+        },
+        error => {
+          console.error('Error: ', error);
+          // Obsługa błędu
+        }
+      );
     }
   }
 }
