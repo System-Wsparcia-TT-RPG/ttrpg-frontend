@@ -1,0 +1,36 @@
+table {
+    border-collapse: collapse;
+    width: 200px;
+}
+
+td {
+    /* border: 1px solid #ddd; */
+    padding: 2px;
+    text-align: center;
+    position: relative;
+}
+
+td div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #fff;
+    border-radius: 15px;
+    padding: 5px 10px;
+    width: 80px;
+    height: 24px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+td div span {
+    display: inline-block;
+}
+
+td div span.value {
+    background: #f0f0f0;
+    padding: 0 5px;
+    border-radius: 10px;
+    min-width: 20px;
+    text-align: center;
+}
+
