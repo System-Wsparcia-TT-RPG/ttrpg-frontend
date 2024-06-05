@@ -16,13 +16,13 @@ export class HitPointsComponent {
 
   public selectedText: string[] = ["CURR", "MAX", "TEMP"];
 
-  public character: any = [];
+  public character: any | null | undefined = [];
 
   public constructor(private characterData: CharacterDataService){}
 
   ngOnInit() {
-    this.character = this.characterData.characters[0]
-    this.hpValues[0] = this.character.combat.hit_points;
+    this.character = this.characterData?.characters[0];
+    this.hpValues[0] = this.character?.combat?.hit_points;
   }
 
   increaseSelected(){

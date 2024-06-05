@@ -63,10 +63,10 @@ export class CharacterDataService {
     
     resp.subscribe({
       next: data => {
-        this.characters = data
+        this.characters = data;
       },
       error: async e => { // We can check error status here
-        console.error(e)
+        console.error(e);
       }
     })
 
