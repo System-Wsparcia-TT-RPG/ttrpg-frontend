@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { HitButtonComponent } from './hit-button/hit-button.component';
+import { CharacterDataService } from '../../services/character-data.service';
+import { OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-hit-points',
@@ -9,24 +11,32 @@ import { HitButtonComponent } from './hit-button/hit-button.component';
   styleUrl: './hit-points.component.css'
 })
 export class HitPointsComponent {
-  public hpValues: number[] = [4, 12, 0]; //current, max, temp
+  public hpValues: number[] = [4, 100, 0]; //current, max, temp
   public selected: number = 0;
 
   public selectedText: string[] = ["CURR", "MAX", "TEMP"];
 
+  public character: any = [];
+
+  public constructor(private characterData: CharacterDataService){}
+
+  ngOnInit() {
+    this.character = this.characterData.characters[0]
+    this.hpValues[0] = this.character.combat.hit_points;
+  }
+
   increaseSelected(){
     if(this.selected == 0 && this.hpValues[0] >= this.hpValues[1]) // cant increase current above max
       return;
-    else this.hpValues[this.selected]++;
+    else this.character.combat.hit_points++;
   }
+
 
   decreaseSelected(){
     if(this.hpValues[this.selected] == 0) //no negatives
       return;
-    this.hpValues[this.selected]--;
-
+    this.character.combat.hit_points--;
     if (this.hpValues[1] < this.hpValues[0]) {
-      console.log(this.hpValues[1], this.hpValues[0]);
       
       this.hpValues[0] = this.hpValues[1];
     } //if max drops below current, change current to new max

@@ -60,6 +60,8 @@ export class AppComponent {
             console.error('Failed to fetch skills data', err);
           }
     });
+
+    this.characterDataService.getCharacters();
   }
 
   
