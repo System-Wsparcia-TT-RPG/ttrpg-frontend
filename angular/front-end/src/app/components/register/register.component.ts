@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { UserService } from '../../services/user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -19,6 +20,7 @@ export class RegisterComponent {
   constructor(
     private fb: FormBuilder,
     private userService: UserService,
+    private router: Router,
   ) {
     this.registerForm = this.fb.group({
       username: ['', Validators.required],
@@ -36,11 +38,10 @@ export class RegisterComponent {
       this.userService.register(uusername, email, password).subscribe(
         response => {
           console.log(response);
-          // Przekierowanie
+          this.router.navigate(['/login']);
         },
         error => {
-          console.error('Error: ', error);
-          // Obsługa błędu
+          window.alert(error);
         }
       );
     }

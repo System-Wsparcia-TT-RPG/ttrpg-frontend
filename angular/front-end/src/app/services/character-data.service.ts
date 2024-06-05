@@ -23,7 +23,7 @@ export class CharacterDataService {
   }
 
   getCharacter(id: number): Observable<any> {
-    return this.http.get(`http://localhost:8000/api/character/${id}/4/`)
+    return this.http.get(`http://localhost:8000/api/character/${id}/3/`)
       .pipe(
         catchError(error => {
           console.error('Error fetching character:', error);

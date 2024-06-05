@@ -9,9 +9,12 @@ export class UserService {
 
   private authUrl = 'http://localhost:8000/api/receive_data/'; // API endpoint
 
+  private loggedUser = "";
+  private isLogged = false;
+
   constructor(private http: HttpClient) { }
 
-  login(username: string, password: string): Observable<any>{
+  login(username: string, password: string): Observable<any> {
     const loginData = {
       operation: 'L',
       login: username,
@@ -31,5 +34,27 @@ export class UserService {
     };
 
     return this.http.post(this.authUrl, registerData);
+  }
+
+  logout() {
+    this.loggedUser = "";
+    this.isLogged = false;
+  }
+
+  setLogged(isLogged: boolean) {
+    this.isLogged = isLogged;
+  
+  }
+
+  isLoggedIn() {
+    return this.isLogged;
+  }
+
+  setLoggedUser(user: string) {
+    this.loggedUser = user;
+  }
+
+  getLoggedUser() {
+    return this.loggedUser;
   }
 }

@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { UserService } from '../../services/user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -15,10 +16,13 @@ import { UserService } from '../../services/user.service';
 })
 export class LoginComponent {
   loginForm: FormGroup;
+  incorrecCredentials = false;
+  errorMessage = '';
 
   constructor(
     private fb: FormBuilder,
     private userService: UserService,
+    private router: Router,
   ) {
     this.loginForm = this.fb.group({
       username: ['', Validators.required],
@@ -34,13 +38,31 @@ export class LoginComponent {
       this.userService.login(userName, password).subscribe(
         response => {
           console.log(response);
-          // Przekierowanie
+          const message = response.message;
+          switch (message) {
+            case 'Użytkownik istnieje':
+              this.userService.setLoggedUser(userName);
+              this.userService.setLogged(true);
+              this.router.navigate(['/character-board']);
+              break;
+            case 'Nieprawidłowe dane':
+            case 'Błędne hasło':
+              this.incorrecCredentials = true;
+              this.errorMessage = message;
+              this.loginForm.reset();
+              break;
+
+          };
         },
         error => {
-          console.error('Error: ', error);
-          // Obsługa błędu
+          window.alert(error);
+          this.loginForm.reset();
         }
       );
     }
+  }
+
+  resetErrorState() {
+    this.incorrecCredentials = false;
   }
 }
