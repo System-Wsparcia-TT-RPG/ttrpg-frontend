@@ -1,86 +1,10 @@
-
 <div class="container-fluid main-container">
     <div class="row navbar x1">
         <app-navbar></app-navbar>
     </div>
-    <div class="row stats x1">
-        <!-- base stats start -->
-
-
-        <app-base-stats [description]="'Strength'" [value]="baseStats.strength" class="col-1"></app-base-stats>
-
-        <app-base-stats [description]="'Dexterity'" [value]="baseStats.dexterity" class="col-1"></app-base-stats>
-
-        <app-base-stats [description]="'Concentration'" [value]="baseStats.constitution" class="col-1"></app-base-stats>
-
-        <app-base-stats [description]="'Inteligence'" [value]="baseStats.intelligence" class="col-1"></app-base-stats>
-
-        <app-base-stats [description]="'Wisdom'" [value]="baseStats.wisdom" class="col-1"></app-base-stats>
-
-        <app-base-stats [description]="'Charisma'" [value]="baseStats.charisma" class="col-1"></app-base-stats>
-
-        <!-- base stats ends -->
-
-        <app-single-stats [description_top]="'Proficiency'" [value]="'+2'" [description_bottom]="'Bonus'" class="col-1">
-        </app-single-stats>
-
-        <app-single-stats [description_top]="'Walking'" [value]="singleStats.speed" [description_bottom]="'Speed'" class="col-1">
-        </app-single-stats>
-
-        <app-single-stats [description_top]="''" [value]="22" [description_bottom]="'Inspiration'" class="col-1">
-        </app-single-stats>
-
-        <app-hit-points class="col-3">
-        </app-hit-points>
-
-
-    </div>
-    <div class="row main x10">
-        <div class="col-3">
-
-            <app-saving-throws class="row x3 saving-throws">
-            </app-saving-throws>
-
-            <app-senses class="row x3 senses">
-            </app-senses>
-
-            <app-proficiencies-languges class="row x4 prof-lang">
-            </app-proficiencies-languges>
-
-        </div>
-
-        <app-skills class="col-3 x10 skills">
-        </app-skills>
-        
-        <div class="col-6">
-            <div class="row x1">
-
-                <app-single-stats [description_top]="'Initiative'" [value]="singleStats.initiative" [description_bottom]="''" class="col-2">
-                </app-single-stats>
-
-                <app-single-stats [description_top]="'Armor'" [value]="singleStats.armor_class" [description_bottom]="'class'" class="col-2">
-                </app-single-stats>
-
-                <app-conditions-list class="col-4">
-                </app-conditions-list>
-
-                <app-conditions-list class="col-4">
-                </app-conditions-list>
-                
-            </div>
-
-            <div class="row x9 navigate-box">
-                <app-navigate-box></app-navigate-box>
-            </div>
-
-        </div>
-    </div>
-
-    <!-- Remember to mention the author and the source when using this image. Copy the attribution details below and include them on your project or website. -->
-    <a href="https://www.freepik.com/free-photo/pastel-yellow-vignette-concrete-textured-background_17118471.htm#fromView=search&page=1&position=2&uuid=f4c77eae-3dae-4233-8f1c-8b9b734d3127">Background image by rawpixel.com on Freepik</a>
-
+    
+    <router-outlet></router-outlet>
 </div>
 
-<router-outlet></router-outlet>
 
 
