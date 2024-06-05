@@ -1,17 +1,39 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterOutlet } from '@angular/router';
-import { NavbarComponent } from './components/navbar/navbar.component';
-import { CharacterDataService } from './services/character-data.service';
+import { BaseStatsComponent } from '../base-stats/base-stats.component';
+import { ConditionsListComponent } from '../conditions-list/conditions-list.component';
+import { HitPointsComponent } from '../hit-points/hit-points.component';
+import { NavigateBoxComponent } from '../navigate-box/navigate-box.component';
+import { ProficienciesLanguagesComponent } from '../proficiencies-languages/proficiencies-languages.component';
+import { SavingThrowsComponent } from '../saving-throws/saving-throws.component';
+import { SensesComponent } from '../senses/senses.component';
+import { SingleStatsComponent } from '../single-stats/single-stats.component';
+import { SkillsComponent } from '../skills/skills.component';
+import { CharacterDataService } from '../../services/character-data.service';
+
+
+
 
 @Component({
-  selector: 'app-root',
+  selector: 'app-character-board',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, NavbarComponent],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  imports: [
+    CommonModule,
+    BaseStatsComponent,
+    ConditionsListComponent,
+    HitPointsComponent,
+    NavigateBoxComponent,
+    ProficienciesLanguagesComponent, 
+    SavingThrowsComponent, 
+    SensesComponent, 
+    SingleStatsComponent, 
+    SkillsComponent
+  ],
+  templateUrl: './character-board.component.html',
+  styleUrl: './character-board.component.css'
 })
-export class AppComponent {
+export class CharacterBoardComponent {
+
   title = 'front-end';
 
   character: any; // This will hold the fetched data
@@ -47,12 +69,10 @@ export class AppComponent {
             console.error('Failed to fetch skills data', err);
           }
     });
-
-    this.characterDataService.getCharacters();
   }
 
-  
 }
+
 interface baseStats {
   strength: number;
   dexterity: number;
