@@ -1,0 +1,27 @@
+.condition-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #ec9118;
+    border-radius: 10px;
+    font-family: Arial, sans-serif;
+    background: white;
+    text-align: center;
+    position: relative;
+    padding:6px;
+}
+
+.condition-item {
+    font-weight: bold;
+    color: #555;
+}
+
+.dice-value {
+    font-weight: bold;
+    color: black;
+    display: inline-block;
+    border: 1px solid #ec9118;
+    border-radius: 10px;
+    background: #f0f0f0;
+}
