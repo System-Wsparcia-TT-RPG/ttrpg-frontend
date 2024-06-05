@@ -1,0 +1,28 @@
+.notes-container {
+    padding: 20px;
+  }
+  
+  .note {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+  }
+  
+  .note-content {
+    font-size: 16px;
+  }
+  
+  .error-message {
+    color: red;
+    font-weight: bold;
+  }
+  .notes-container input[type="text"] {
+    border: 1px solid #ccc;
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+}
+
+
+
