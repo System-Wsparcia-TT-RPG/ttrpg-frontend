@@ -8,4 +8,20 @@ span {
     justify-content: center; /* Center the items horizontally */
   }
 
+
+
+button {
+    border: 1px solid lightblue; 
+    color: blue; /* Blue text color */
+    border-radius: 50%; /* Makes the button round */
+    margin: 2px;
+    cursor: pointer; /* Pointer cursor on hover */
+    display: inline-flex; /* Centers the text inside the button */
+    align-items: center; /* Centers the text inside the button */
+    justify-content: center; /* Centers the text inside the button */
+  }
   
+  button:hover {
+    background-color: blue; /* Blue background on hover */
+    color: white; /* White text color on hover */
+  }

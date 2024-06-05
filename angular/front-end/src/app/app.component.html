@@ -7,27 +7,27 @@
         <!-- base stats start -->
 
 
-        <app-base-stats [description]="'Strength'" [value]="character?.AbilityScores?.STR" class="col-1"></app-base-stats>
+        <app-base-stats [description]="'Strength'" [value]="baseStats.strength" class="col-1"></app-base-stats>
 
-        <app-base-stats [description]="'Dexterity'" [value]="character?.AbilityScores?.DEX" class="col-1"></app-base-stats>
+        <app-base-stats [description]="'Dexterity'" [value]="baseStats.dexterity" class="col-1"></app-base-stats>
 
-        <app-base-stats [description]="'Concentration'" [value]="character?.AbilityScores?.CON" class="col-1"></app-base-stats>
+        <app-base-stats [description]="'Concentration'" [value]="baseStats.constitution" class="col-1"></app-base-stats>
 
-        <app-base-stats [description]="'Inteligence'" [value]="character?.AbilityScores?.INT" class="col-1"></app-base-stats>
+        <app-base-stats [description]="'Inteligence'" [value]="baseStats.intelligence" class="col-1"></app-base-stats>
 
-        <app-base-stats [description]="'Wisdom'" [value]="character?.AbilityScores?.WIS" class="col-1"></app-base-stats>
+        <app-base-stats [description]="'Wisdom'" [value]="baseStats.wisdom" class="col-1"></app-base-stats>
 
-        <app-base-stats [description]="'Charisma'" [value]="character?.AbilityScores?.CHA" class="col-1"></app-base-stats>
+        <app-base-stats [description]="'Charisma'" [value]="baseStats.charisma" class="col-1"></app-base-stats>
 
         <!-- base stats ends -->
 
-        <app-single-stats class="col-1">
+        <app-single-stats [description_top]="'Proficiency'" [value]="'+2'" [description_bottom]="'Bonus'" class="col-1">
         </app-single-stats>
 
-        <app-single-stats class="col-1">
+        <app-single-stats [description_top]="'Walking'" [value]="singleStats.speed" [description_bottom]="'Speed'" class="col-1">
         </app-single-stats>
 
-        <app-single-stats class="col-1">
+        <app-single-stats [description_top]="''" [value]="22" [description_bottom]="'Inspiration'" class="col-1">
         </app-single-stats>
 
         <app-hit-points class="col-3">
@@ -55,10 +55,10 @@
         <div class="col-6">
             <div class="row x1">
 
-                <app-single-stats class="col-2">
+                <app-single-stats [description_top]="'Initiative'" [value]="singleStats.initiative" [description_bottom]="''" class="col-2">
                 </app-single-stats>
 
-                <app-single-stats class="col-2">
+                <app-single-stats [description_top]="'Armor'" [value]="singleStats.armor_class" [description_bottom]="'class'" class="col-2">
                 </app-single-stats>
 
                 <app-conditions-list class="col-4">
