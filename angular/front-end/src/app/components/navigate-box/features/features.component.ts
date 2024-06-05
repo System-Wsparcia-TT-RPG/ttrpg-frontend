@@ -8,5 +8,7 @@ import { Component } from '@angular/core';
   styleUrl: './features.component.css'
 })
 export class FeaturesComponent {
-
+  feature1: string = 'Feature 1';
+  feature2: string = 'Feature 2';
+  feature3: string = 'Feature 3';
 }
