@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +13,10 @@ export class UserService {
   private loggedUser = "";
   private isLogged = false;
 
-  constructor(private http: HttpClient) { }
+  constructor(
+    private http: HttpClient,
+    private router: Router
+  ) { }
 
   login(username: string, password: string): Observable<any> {
     const loginData = {
@@ -39,6 +43,7 @@ export class UserService {
   logout() {
     this.loggedUser = "";
     this.isLogged = false;
+    this.router.navigate(['/home']);
   }
 
   setLogged(isLogged: boolean) {
