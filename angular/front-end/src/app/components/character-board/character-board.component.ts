@@ -23,10 +23,10 @@ import { CharacterDataService } from '../../services/character-data.service';
     ConditionsListComponent,
     HitPointsComponent,
     NavigateBoxComponent,
-    ProficienciesLanguagesComponent, 
-    SavingThrowsComponent, 
-    SensesComponent, 
-    SingleStatsComponent, 
+    ProficienciesLanguagesComponent,
+    SavingThrowsComponent,
+    SensesComponent,
+    SingleStatsComponent,
     SkillsComponent
   ],
   templateUrl: './character-board.component.html',
@@ -60,19 +60,21 @@ export class CharacterBoardComponent {
 
   ngOnInit(): void {
     this.characterDataService.getCharacter(1).subscribe({
-          next: (data) => {
-            // add any needed other objects and create interfaes for them
-            this.singleStats = data[0].combat as singleStats;
-            this.baseStats = data[0].ability_scores as baseStats;
-          },
-          error: (err) => {
-            console.error('Failed to fetch skills data', err);
-          }
+      next: (data) => {
+        // add any needed other objects and create interfaes for them
+        this.singleStats = data[0].combat as singleStats;
+        this.baseStats = data[0].ability_scores as baseStats;
+      },
+      error: (err) => {
+        console.error('Failed to fetch skills data', err);
+      }
     });
+
+    this.characterDataService.getCharacters();
   }
 
-}
 
+}
 interface baseStats {
   strength: number;
   dexterity: number;
