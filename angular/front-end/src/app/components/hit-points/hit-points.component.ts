@@ -11,40 +11,51 @@ import { OnInit } from '@angular/core';
   styleUrl: './hit-points.component.css'
 })
 export class HitPointsComponent {
-  public hpValues: number[] = [4, 100, 0]; //current, max, temp
   public selected: number = 0;
+  public tempHp = 0;
+  hpValues = [];
 
-  public selectedText: string[] = ["CURR", "MAX", "TEMP"];
+  public selectedText: string[] = ["CURR", "TEMP"];
 
   public character: any | null | undefined = [];
 
   public constructor(private characterData: CharacterDataService){}
 
   ngOnInit() {
-    this.character = this.characterData?.characters[0];
-    this.hpValues[0] = this.character?.combat?.hit_points;
+    this.character = this.characterData.currentCharacter;
   }
 
   increaseSelected(){
-    if(this.selected == 0 && this.hpValues[0] >= this.hpValues[1]) // cant increase current above max
+    if (this.selected == 0){
+      if(this.character.combat.hit_points >= this.getMaxHp()) // cant increase current above max
       return;
-    else this.character.combat.hit_points++;
+      else this.character.combat.hit_points++;
+    } else {
+      this.tempHp++;
+    }
   }
 
 
   decreaseSelected(){
-    if(this.hpValues[this.selected] == 0) //no negatives
-      return;
-    this.character.combat.hit_points--;
-    if (this.hpValues[1] < this.hpValues[0]) {
-      
-      this.hpValues[0] = this.hpValues[1];
-    } //if max drops below current, change current to new max
+    if(this.selected == 0){
+      if(this.character.combat.hit_points == 0) //no negatives
+        return;
+      this.character.combat.hit_points--;
+    } else {
+      if(this.tempHp == 0) return;
+      this.tempHp--;
+    }
   }
 
   changeSelected(){
     this.selected++;
-    this.selected = this.selected % 3;
+    this.selected = this.selected % 2;
+  }
+
+  getMaxHp() : number{
+    var values = this.character?.combat?.hit_dice.split("d");
+    if (values) return values[0] * values[1];
+    return 100;
   }
 
 }

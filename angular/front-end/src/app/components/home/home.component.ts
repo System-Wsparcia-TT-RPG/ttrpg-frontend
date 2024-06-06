@@ -24,9 +24,10 @@ export class HomeComponent implements OnInit{
     private characterDataService: CharacterDataService
   ) { }
 
-ngOnInit(): void {
-  this.characters = this.characterDataService.characters;
+  ngOnInit(): void {
+    this.characters = this.characterDataService.characters;
   }
+  
   isLogged() {
     return this.userService.isLoggedIn();
   }
@@ -49,9 +50,7 @@ ngOnInit(): void {
 
   onCharacterChange(event: any) {
     this.characterDataService.charId = event.target.value - 1 ;
+    this.characterDataService.currentCharacter = this.characters[this.characterDataService.charId];
   }
-
-
-
   
 }
