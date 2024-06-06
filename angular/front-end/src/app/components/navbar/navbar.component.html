@@ -6,6 +6,9 @@
     <div class="navbar-collapse justify-content-end" id="navbarNav">
         <ul class="navbar-nav">
             <li class="nav-item active">
+                <a class="nav-link" routerLink="/character-board" *ngIf="isLogged()">Character board</a>
+            </li>
+            <li class="nav-item active">
                 <a class="nav-link" routerLink="/home">Home</a>
             </li>
             <li class="nav-item active">

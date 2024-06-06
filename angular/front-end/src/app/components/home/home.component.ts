@@ -28,4 +28,10 @@ export class HomeComponent {
   goToRegister() {
     this.router.navigate(['/register']);
   }
+
+  test() {
+    console.log('test');
+  }
+
+  
 }

@@ -42,7 +42,7 @@ export class LoginComponent {
             case 'Użytkownik istnieje':
               this.userService.setLoggedUser(userName);
               this.userService.setLogged(true);
-              this.router.navigate(['/character-board']);
+              this.router.navigate(['/home']);
               break;
             case 'Nieprawidłowe dane':
             case 'Błędne hasło':
