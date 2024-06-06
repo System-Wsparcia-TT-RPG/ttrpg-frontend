@@ -11,18 +11,12 @@ import { CommonModule } from '@angular/common';
   styleUrl: './proficiencies-languages.component.css'
 })
 export class ProficienciesLanguagesComponent implements OnInit {
-  character: any;
-  constructor(private CharacterDataService: CharacterDataService) { }
+  character: any = {};
+  constructor(private characterDataService: CharacterDataService) { }
 
   ngOnInit(): void {
-    this.CharacterDataService.getCharacter(1).subscribe({
-      next: (data) => {
-        this.character = data[0];
-      },
-      error: (err) => {
-        console.error('Failed to fetch data', err);
-      }
-    });
+    this.character = this.characterDataService.currentCharacter;
   }
 }
+
 

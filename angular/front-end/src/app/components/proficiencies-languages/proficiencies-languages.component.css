@@ -4,8 +4,6 @@
 }
 
 .custom_table {
-    max-width: 100%;
-    table-layout: fixed;
     color: black;
     border-color: transparent;
 }
@@ -13,8 +11,4 @@
 .custom_table th {
     background-color: transparent;
     color: black;
-}
-
-.custom_table td {
-    background-color: transparent;
 }

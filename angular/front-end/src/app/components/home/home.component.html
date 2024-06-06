@@ -1,11 +1,23 @@
 <div class="container my-5">
-    <div class="row justify-content-center align-items-center">
+  <div class="row justify-content-center align-items-center">
       <div class="col-md-8 text-center">
-        <h2>System wsparcia TT-RPG</h2>
-        <p class="lead my-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione repellat, incidunt autem dolor adipisci aliquid quis laudantium aliquam ipsam aperiam labore doloremque modi molestiae enim maiores ullam! Amet, hic minus.</p>
-        <a (click)="goToRegister()" class="btn btn-outline-dark mx-4" *ngIf="!isLogged()" style="width: 80px;">Register</a>
-        <a (click)="goToLogin()" class="btn btn-outline-dark mx-4" *ngIf="!isLogged()" style="width: 80px;">Login</a>
-        <button (click)="test()" class="btn btn-outline-dark mx-4" *ngIf="isLogged()" style="width: 150px;">Add new character</button>
+          <h2>System wsparcia TT-RPG</h2>
+          <p class="lead my-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione repellat, incidunt autem dolor adipisci aliquid quis laudantium aliquam ipsam aperiam labore doloremque modi molestiae enim maiores ullam! Amet, hic minus.</p>
+          <a (click)="goToRegister()" class="btn btn-outline-dark mx-4" *ngIf="!isLogged()" style="width: 80px;">Register</a>
+          <a (click)="goToLogin()" class="btn btn-outline-dark mx-4" *ngIf="!isLogged()" style="width: 80px;">Login</a>
+          <button (click)="test()" class="btn btn-outline-dark mx-4" *ngIf="isLogged()" style="width: 150px;">Add new character</button>
       </div>
-    </div>
+  </div>
+
+  <div class="row justify-content-center my-5">
+      <div class="col-md-8 text-center">
+          <label for="characterSelect">Wybierz postać:</label>
+          <select id="characterSelect" *ngIf="isLogged()" class="form-control my-2 mx-auto" (change)="onCharacterChange($event)" style="width: 200px;">
+              <option *ngFor="let character of characters" [value]="character.id" [selected]="character.id === selectedCharacterId">{{ character.nickname }}</option>
+          </select>
+      </div>
+  </div>
 </div>
+
+
+
