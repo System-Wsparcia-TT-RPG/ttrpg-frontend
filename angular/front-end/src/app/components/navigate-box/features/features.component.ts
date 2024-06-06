@@ -1,26 +1,55 @@
 import { NgForOf } from '@angular/common';
 import { Component } from '@angular/core';
+import { CharacterDataService } from '../../../services/character-data.service';
+import { HttpClient } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-features',
   standalone: true,
-  imports: [NgForOf],
+  imports: [NgForOf, FormsModule],
   templateUrl: './features.component.html',
-  styleUrl: './features.component.css'
+  styleUrls: ['./features.component.css']
 })
 export class FeaturesComponent {
-  features = [
-    {
-      name: 'Strength',
-      description: 'Strength is a measure of your character\'s physical power. It affects how much they can lift, how hard they can hit, and their general physical prowess. High strength can be crucial for warriors and characters who engage in a lot of physical combat.'
-    },
-    {
-      name: 'Dexterity',
-      description: 'Dexterity represents agility, reflexes, and balance. It influences a character\'s ability to dodge attacks, move silently, and perform tasks that require finesse. Rogues and archers typically rely on high dexterity for their skills and attacks.'
-    },
-    {
-      name: 'Constitution',
-      description: 'Constitution is a measure of your character\'s overall health and stamina. It affects their hit points and resistance to physical ailments. A high constitution is important for all characters, especially those who find themselves frequently in the midst of battle.'
+  selectedFeatureId: any = -1;
+  character: any = { features: [] };  // Initialize features as an empty array
+  allFeatures: any[] = [];
+
+  constructor(private characterService: CharacterDataService, private http: HttpClient) { }
+
+  removeFeature(id: number) {
+    this.characterService.currentCharacter.features = this.characterService.currentCharacter.features.filter((feature: any) => feature.id != id);
+  }
+
+  addFeature() {
+    if (this.selectedFeatureId === -1)
+      this.selectedFeatureId = this.availableFeatures()[0]?.id;  // Add a safe navigation operator
+
+    const featureToAdd = this.allFeatures.find(feature => feature.id == this.selectedFeatureId);
+    if (featureToAdd) {
+      this.characterService.currentCharacter.features.push(featureToAdd);
+      this.selectedFeatureId = -1;
     }
-  ];
+  }
+
+  availableFeatures(): any[] {
+    const currentFeatures = this.character?.features || [];  // Use a default value if features is undefined
+    return this.allFeatures.filter(feature => !currentFeatures.map((s: any) => s.id).includes(feature.id));
+  }
+
+  ngOnInit(): void {
+    this.character = this.characterService.currentCharacter;
+    this.character.features = this.character.features || [];  // Ensure features is an array
+
+    this.http.get<any[]>('http://localhost:8000/api/feature/all/4/').subscribe({
+      next: data => {
+        this.allFeatures = data;
+      },
+      error: e => {
+        console.error(e);
+      }
+    });
+  }
 }
+
