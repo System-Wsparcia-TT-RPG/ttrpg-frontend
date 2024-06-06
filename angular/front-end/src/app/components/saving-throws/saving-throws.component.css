@@ -34,3 +34,10 @@ td div span.value {
     text-align: center;
 }
 
+.inputValue {
+    border-radius: 10px;
+    background: #f0f0f0;
+    width: 50%;
+    min-width: 20px;
+    text-align: center;
+}

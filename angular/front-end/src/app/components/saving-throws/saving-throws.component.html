@@ -6,13 +6,17 @@
             <td>
                 <div>
                     <span>STR</span>
-                    <span class="value">{{ savingThrows['strength'] }}</span>
+                    <input type="number" class="inputValue" 
+                    [ngModel]="character?.saving_throws?.strength" 
+                    (ngModelChange)="updateSavingThrow('strength', $event)">
                 </div>
             </td>
             <td>
                 <div>
                     <span>INT</span>
-                    <span class="value">{{ savingThrows['intelligence'] }}</span>
+                    <input type="number" class="inputValue" 
+                    [ngModel]="character?.saving_throws?.intelligence" 
+                    (ngModelChange)="updateSavingThrow('intelligence', $event)">
                 </div>
             </td>
         </tr>
@@ -20,13 +24,17 @@
             <td>
                 <div>
                     <span>WIS</span>
-                    <span class="value">{{ savingThrows['wisdom'] }}</span>
+                    <input type="number" class="inputValue" 
+                    [ngModel]="character?.saving_throws?.wisdom" 
+                    (ngModelChange)="updateSavingThrow('wisdom', $event)">
                 </div>
             </td>
             <td>
                 <div>
                     <span>DEX</span>
-                    <span class="value">{{ savingThrows['dexterity'] }}</span>
+                    <input type="number" class="inputValue" 
+                    [ngModel]="character?.saving_throws?.dexterity" 
+                    (ngModelChange)="updateSavingThrow('dexterity', $event)">
                 </div>
             </td>
         </tr>
@@ -34,13 +42,17 @@
             <td>
                 <div>
                     <span>CON</span>
-                    <span class="value">{{ savingThrows['constitution'] }}</span>
+                    <input type="number" class="inputValue" 
+                    [ngModel]="character?.saving_throws?.constitution" 
+                    (ngModelChange)="updateSavingThrow('constitution', $event)">
                 </div>
             </td>
             <td>
                 <div>
                     <span>CHA</span>
-                    <span class="value">{{ savingThrows['charisma'] }}</span>
+                    <input type="number" class="inputValue" 
+                    [ngModel]="character?.saving_throws?.charisma" 
+                    (ngModelChange)="updateSavingThrow('charisma', $event)">
                 </div>
             </td>
         </tr>
