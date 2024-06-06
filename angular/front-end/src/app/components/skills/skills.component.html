@@ -12,104 +12,104 @@
             <td><input type="checkbox" [(ngModel)]="selectedSkills.athletics"></td>
             <td>STR</td>
             <td>Athletics</td>
-            <td>{{ skills['athletics'] }}</td>
+            <td><input type="number" class="skillValue" [ngModel]="character?.skills['athletics']" (ngModelChange)="updateSkill('athletics', $event)"></td>
         </tr>
         <tr>
             <td><input type="checkbox" [(ngModel)]="selectedSkills.acrobatics"></td>
             <td>DEX</td>
             <td>Acrobatics</td>
-            <td>{{ skills['acrobatics'] }}</td>
+            <td><input type="number" class="skillValue" [ngModel]="character?.skills['acrobatics']" (ngModelChange)="updateSkill('acrobatics', $event)"></td>
         </tr>
         <tr>
             <td><input type="checkbox" [(ngModel)]="selectedSkills.sleight_of_hand"></td>
             <td>DEX</td>
             <td>Sleight of hand</td>
-            <td>{{ skills['sleight_of_hand'] }}</td>
+            <td><input type="number" class="skillValue" [ngModel]="character?.skills['sleight_of_hand']" (ngModelChange)="updateSkill('sleight_of_hand', $event)"></td>
         </tr>
         <tr>
             <td><input type="checkbox" [(ngModel)]="selectedSkills.stealth"></td>
             <td>DEX</td>
             <td>Stealth</td>
-            <td>{{ skills['stealth'] }}</td>
+            <td><input type="number" class="skillValue" [ngModel]="character?.skills['stealth']" (ngModelChange)="updateSkill('stealth', $event)"></td>
         </tr>
         <tr>
             <td><input type="checkbox" [(ngModel)]="selectedSkills.animal_handling"></td>
             <td>WIS</td>
             <td>Animal Handling</td>
-            <td>{{ skills['animal_handling'] }}</td>
+            <td><input type="number" class="skillValue" [ngModel]="character?.skills['animal_handling']" (ngModelChange)="updateSkill('animal_handling', $event)"></td>
         </tr>
         <tr>
             <td><input type="checkbox" [(ngModel)]="selectedSkills.medicine"></td>
             <td>WIS</td>
             <td>Medicine</td>
-            <td>{{ skills['medicine'] }}</td>
+            <td><input type="number" class="skillValue" [ngModel]="character?.skills['medicine']" (ngModelChange)="updateSkill('medicine', $event)"></td>
         </tr>
         <tr>
             <td><input type="checkbox" [(ngModel)]="selectedSkills.perception"></td>
             <td>WIS</td>
             <td>Perception</td>
-            <td>{{ skills['perception'] }}</td>
+            <td><input type="number" class="skillValue" [ngModel]="character?.skills['perception']" (ngModelChange)="updateSkill('perception', $event)"></td>
         </tr>
         <tr>
             <td><input type="checkbox" [(ngModel)]="selectedSkills.survival"></td>
             <td>WIS</td>
             <td>Survival</td>
-            <td>{{ skills['survival'] }}</td>
+            <td><input type="number" class="skillValue" [ngModel]="character?.skills['survival']" (ngModelChange)="updateSkill('survival', $event)"></td>
         </tr>
 
         <tr>
             <td><input type="checkbox" [(ngModel)]="selectedSkills.arcana"></td>
             <td>INT</td>
             <td>Arcana</td>
-            <td>{{ skills['arcana'] }}</td>
+            <td><input type="number" class="skillValue" [ngModel]="character?.skills['arcana']" (ngModelChange)="updateSkill('arcana', $event)"></td>
         </tr>
         <tr>
             <td><input type="checkbox" [(ngModel)]="selectedSkills.history"></td>
             <td>INT</td>
             <td>History</td>
-            <td>{{ skills['history'] }}</td>
+            <td><input type="number" class="skillValue" [ngModel]="character?.skills['history']" (ngModelChange)="updateSkill('history', $event)"></td>
         </tr>
         <tr>
             <td><input type="checkbox" [(ngModel)]="selectedSkills.investigation"></td>
             <td>INT</td>
             <td>Investigation</td>
-            <td>{{ skills['investigation'] }}</td>
+            <td><input type="number" class="skillValue" [ngModel]="character?.skills['investigation']" (ngModelChange)="updateSkill('investigation', $event)"></td>
         </tr>
         <tr>
             <td><input type="checkbox" [(ngModel)]="selectedSkills.nature"></td>
             <td>INT</td>
             <td>Nature</td>
-            <td>{{ skills['nature'] }}</td>
+            <td><input type="number" class="skillValue" [ngModel]="character?.skills['nature']" (ngModelChange)="updateSkill('nature', $event)"></td>
         </tr>
         <tr>
             <td><input type="checkbox" [(ngModel)]="selectedSkills.religion"></td>
             <td>INT</td>
             <td>Religion</td>
-            <td>{{ skills['religion'] }}</td>
+            <td><input type="number" class="skillValue" [ngModel]="character?.skills['religion']" (ngModelChange)="updateSkill('religion', $event)"></td>
         </tr>
         <tr>
             <td><input type="checkbox" [(ngModel)]="selectedSkills.deception"></td>
             <td>CHA</td>
             <td>Deception</td>
-            <td>{{ skills['deception'] }}</td>
+            <td><input type="number" class="skillValue" [ngModel]="character?.skills['deception']" (ngModelChange)="updateSkill('deception', $event)"></td>
         </tr>
         <tr>
             <td><input type="checkbox" [(ngModel)]="selectedSkills.intimidation"></td>
             <td>CHA</td>
             <td>Intimidation</td>
-            <td>{{ skills['intimidation'] }}</td>
+            <td><input type="number" class="skillValue" [ngModel]="character?.skills['intimidation']" (ngModelChange)="updateSkill('intimidation', $event)"></td>
         </tr>
         <tr>
             <td><input type="checkbox" [(ngModel)]="selectedSkills.performance"></td>
             <td>CHA</td>
             <td>Performance</td>
-            <td>{{ skills['performance'] }}</td>
+            <td><input type="number" class="skillValue" [ngModel]="character?.skills['performance']" (ngModelChange)="updateSkill('performance', $event)"></td>
         </tr>
         <tr>
             <td><input type="checkbox" [(ngModel)]="selectedSkills.persuasion"></td>
             <td>CHA</td>
             <td>Persuasion</td>
-            <td>{{ skills['persuasion'] }}</td>
+            <td><input type="number" class="skillValue" [ngModel]="character?.skills['persuasion']" (ngModelChange)="updateSkill('persuasion', $event)"></td>
         </tr>
     </tbody>
 </table>

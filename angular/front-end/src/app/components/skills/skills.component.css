@@ -2,3 +2,13 @@
     width: 100%;
     text-align: center;
 }
+
+tr {
+    border-bottom: 1px solid lightslategray;
+}
+
+.skillValue {
+    width: 25%;
+    border: none;
+    background: none;
+}

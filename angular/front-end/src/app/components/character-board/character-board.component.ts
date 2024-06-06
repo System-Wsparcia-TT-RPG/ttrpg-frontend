@@ -47,17 +47,12 @@ export class CharacterBoardComponent {
   constructor(public characterDataService: CharacterDataService) { }
 
   ngOnInit(): void {
-
     this.characterDataService.getCharacters();
     this.characterDataService.charId = 0;
 
     this.singleStats = this.characterDataService.currentCharacter?.combat as singleStats;
-    this.characterDataService.characters$.subscribe(characters => {
-      this.character = characters[this.characterDataService.charId];
-    });
-  }
-
-
+    this.characterDataService.currentCharacter;
+  };
 }
 
 interface singleStats {
