@@ -52,7 +52,6 @@ ngOnInit(): void {
   }
 
   onCharacterChange(event: any) {
-    this.characterDataService.currentCharacter = this.characters[event.target.value];
     this.characterDataService.charId = event.target.value;
   }
 

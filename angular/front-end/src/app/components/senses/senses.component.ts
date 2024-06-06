@@ -19,5 +19,6 @@ export class SensesComponent implements OnInit {
 
   ngOnInit() {
     this.character = this.characterDataService.currentCharacter;
+    console.log('Current character in senses:', this.character);
   }
 }
