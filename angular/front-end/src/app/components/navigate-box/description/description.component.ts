@@ -15,7 +15,7 @@ export class DescriptionComponent {
   constructor(private characterDataService: CharacterDataService) { }
 
   ngOnInit(): void {
-    const character = this.characterDataService.characters[0];
+    const character = this.characterDataService.currentCharacter;
     this.background = character?.background;
     this.details = character?.details;
   }

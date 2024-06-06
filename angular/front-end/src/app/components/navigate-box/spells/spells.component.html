@@ -2,17 +2,30 @@
     <thead>
         <tr>
             <th>Name</th>
-            <th>Time</th>
+            <th>School</th>
+            <th>Casting Time</th>
             <th>Range</th>
             <th>Duration</th>
+            <th>Components</th>
+            <th>Remove</th>
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let spell of spells">
+        <tr *ngFor="let spell of character?.spells">
             <td>{{spell.name}}</td>
+            <td>{{spell.school | titlecase}}</td>
             <td>{{spell.casting_time}}</td>
             <td>{{spell.range}}</td>
             <td>{{spell.duration}}</td>
+            <td>{{spell.components.raw}}</td>
+            <td><button class="removeButton" (click)="removeSpell(spell.id)">Remove</button></td>
         </tr>
     </tbody>
 </table>
+<div>
+    <label for="addSpell">Add a spell:</label>
+    <select [(ngModel)]="selectedSpellId" name="addSpell" id="addSpell">
+        <option *ngFor="let spell of availableSpells()" value={{spell.id}}>{{spell.name}}</option>
+    </select>
+    <button class="addButton" (click)="addSpell()">Add</button>
+</div>

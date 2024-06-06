@@ -5,15 +5,24 @@
             <th>Weight</th>
             <th>Quantity</th>
             <th>Magic</th>
+            <th>Remove</th>
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let item of equipment">
+        <tr *ngFor="let item of character?.equipment">
             <td>{{item.name}}</td>
             <td>{{item.weight}}</td>
             <td>{{item.quantity}}</td>
             <td>{{item.magic}}</td>
+            <td><button class="removeButton" (click)="removeEquipment(item.id)">Remove</button></td>
         </tr>
     </tbody>
 </table>
+<div>
+    <label for="addEquipment">Add equipment:</label>
+    <select [(ngModel)]="selectedEquipmentId" name="addEquipment" id="addEquipment">
+        <option *ngFor="let equipment of availableEquipment()" value={{equipment.id}}>{{equipment.name}}</option>
+    </select>
+    <button class="addButton" (click)="addEquipment()">Add</button>
+</div>
 

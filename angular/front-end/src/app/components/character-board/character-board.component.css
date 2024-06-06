@@ -1,6 +1,6 @@
 .container-fluid {
     max-height: 100vh;
-    overflow-y: scroll;
+    overflow-y: auto;
     padding: 0 10px; 
 }
 
@@ -108,4 +108,8 @@ p {
 .app-conditions-list,
 .app-navigate-box {
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); 
+}
+
+.navigate-box {
+    overflow: auto;
 }
