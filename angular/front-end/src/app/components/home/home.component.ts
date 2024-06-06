@@ -43,6 +43,10 @@ ngOnInit(): void {
     this.router.navigate(['/register']);
   }
 
+  goToCharacterBoard() {
+    this.router.navigate(['/character-board']);
+  }
+
   test() {
     console.log('test');
   }
