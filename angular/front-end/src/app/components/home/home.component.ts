@@ -23,13 +23,8 @@ export class HomeComponent implements OnInit{
   ) { }
 
 ngOnInit(): void {
-    this.characterDataService.getCharacters().subscribe((data) => {
-      this.characters = data;
-      if (this.characters.length > 0) {
-        this.selectedCharacterId = this.characters[0].id; // Ustaw pierwszą postać jako domyślną
-        this.characterDataService.charId = this.selectedCharacterId; // Ustaw charId w serwisie na ID pierwszej postaci
-      }
-    });
+  this.characters = this.characterDataService.characters;
+  // this.characterDataService.charId = 1
   }
   isLogged() {
     return this.userService.isLoggedIn();
@@ -52,7 +47,7 @@ ngOnInit(): void {
   }
 
   onCharacterChange(event: any) {
-    this.characterDataService.charId = event.target.value;
+    this.characterDataService.charId = event.target.value - 1 ;
   }
 
 
