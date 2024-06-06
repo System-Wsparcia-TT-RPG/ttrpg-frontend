@@ -1,1 +1,25 @@
-
+<table class="feature-table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th class="description-column">Description</th>
+            <th>Source</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let feature of character?.features">
+            <td>{{feature.name}}</td>
+            <td class="description-column">{{feature.description}}</td>
+            <td>{{feature.source}}</td>
+            <td><button class="removeButton" (click)="removeFeature(feature.id)">Remove</button></td>
+        </tr>
+    </tbody>
+</table>
+<div class="add-feature-form">
+    <label for="addFeature">Add a feature:</label>
+    <select [(ngModel)]="selectedFeatureId" name="addFeature" id="addFeature">
+        <option *ngFor="let feature of availableFeatures()" [value]="feature.id">{{feature.name}}</option>
+    </select>
+    <button class="addButton" (click)="addFeature()">Add</button>
+</div>
