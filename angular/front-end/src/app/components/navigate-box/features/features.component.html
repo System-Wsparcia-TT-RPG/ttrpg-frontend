@@ -1,14 +1,8 @@
-<table class="features-table">
-  <thead>
-    <tr>
-      <th>Feature</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let feature of features">
-      <td>{{ feature.name }}</td>
-      <td>{{ feature.description }}</td>
-    </tr>
-  </tbody>
-</table>
+<div>
+    <input [(ngModel)]="newNote" placeholder="Enter a new note" />
+    <button (click)="addNote()">Add Note</button>
+  </div>
+  <ul>
+    <li *ngFor="let note of notes">{{ note }}</li>
+  </ul>
+  
