@@ -1,10 +1,11 @@
+import { NgForOf } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-notes',
   standalone: true,
-  imports: [FormsModule],
+  imports: [FormsModule, NgForOf],
   templateUrl: './notes.component.html',
   styleUrl: './notes.component.css'
 })

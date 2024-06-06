@@ -1,9 +1,10 @@
+import { NgForOf } from '@angular/common';
 import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-features',
   standalone: true,
-  imports: [],
+  imports: [NgForOf],
   templateUrl: './features.component.html',
   styleUrl: './features.component.css'
 })
