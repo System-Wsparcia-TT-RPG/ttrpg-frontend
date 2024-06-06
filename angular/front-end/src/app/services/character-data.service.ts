@@ -6,39 +6,43 @@ import { BehaviorSubject } from 'rxjs';
 import { Character, Full } from '../models';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class CharacterDataService {
+  private apiUrl = 'http://localhost:8000/api';
 
-  private dataUrl = 'http://localhost:8000/api/character/all/4/'; // API endpoint
+  private _characters = new BehaviorSubject<Map<number, Full<Character>>>(
+    new Map()
+  );
+  characters$ = this._characters.asObservable();
 
-  private _characters = new BehaviorSubject<Full<Character>[]>([]);
-  characters$ = this._characters.asObservable()
-
-  private _currentCharacter = new BehaviorSubject<Full<Character>>({} as Full<Character>);
+  private _currentCharacter = new BehaviorSubject<Full<Character>>(
+    {} as Full<Character>
+  );
   currentCharacter$ = this._currentCharacter.asObservable();
 
   private _charId = new BehaviorSubject<number>(0);
   charId$ = this._charId.asObservable();
 
   get characters(): Full<Character>[] {
-    return this._characters.value;
+    return [...this._characters.value.values()];
   }
 
-  set characters(characters: Full<Character>[]) { 
+  set characters(characters: Full<Character>[]) {
     // Modify this code for on-change behavior, e.g send request to the backend (or so I think :) )
-    this._characters.next(characters)
+    this._characters.next(new Map(characters.map(x => [x.id, x])));
   }
 
   get currentCharacter(): Full<Character> {
-    // return only if current charId is within the length of characters
     // TODO: add null checks to code using currentCharcter
-    return (this.charId >= 0 && this.charId < this.characters.length ? this.characters[this.charId] : null) as Full<Character>; 
+    return this._characters.value.get(this.charId) as Full<Character>;
   }
 
   set currentCharacter(character: Full<Character>) {
     // Modify this code for on-change behavior, e.g send request to the backend (or so I think :) )
-    this.characters[this.charId] = character;
+    this.characters = this.characters.map((x) =>
+      x.id == character.id ? character : x
+    );
   }
 
   get charId(): number {
@@ -46,42 +50,47 @@ export class CharacterDataService {
   }
 
   set charId(newId: number) {
-    this._charId.next(newId);
-    this._currentCharacter.next(this.characters[newId]);    
+    let character = this._characters.value.get(newId);
+    console.log("xxx", character, newId, this._characters.value);
+    if (character) {
+      this._charId.next(newId);
+      this._currentCharacter.next(character);
+    }
   }
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   getCharacters(): Observable<Full<Character>[]> {
-    let resp = this.http.get<Full<Character>[]>(this.dataUrl)
-      .pipe(
-        catchError(error => {
-          console.error('Error fetching characters:', error);
-          throw 'Error fetching characters, see console';
-        })
-      );
-    
+    let resp = this.http.get<Full<Character>[]>(this.apiUrl + "/character/all/4/").pipe(
+      catchError((error) => {
+        console.error('Error fetching characters:', error);
+        throw 'Error fetching characters, see console';
+      })
+    );
+
     resp.subscribe({
-      next: data => {
+      next: (data) => {
         this.characters = data;
-        if (this.characters.length > 0){
+        if (this.characters.length > 0) {
           this.charId = 0;
           this.currentCharacter = this.characters[this.charId];
         }
-
       },
-      error: async e => { // We can check error status here
+      error: async (e) => {
+        // We can check error status here
         console.error(e);
-      }
-    })
+      },
+    });
 
     return resp;
   }
 
-  getCharacter(id: number): Observable<Full<Character>> { // not needed while keeping all the characters?
-    let resp = this.http.get<Full<Character>>(`http://localhost:8000/api/character/${id}/4/`)
+  getCharacter(id: number): Observable<Full<Character>> {
+    // not needed while keeping all the characters?
+    let resp = this.http
+      .get<Full<Character>>(`${this.apiUrl}/api/character/${id}/4/`)
       .pipe(
-        catchError(error => {
+        catchError((error) => {
           console.error('Error fetching character:', error);
           throw 'Error fetching character, see console';
         })
