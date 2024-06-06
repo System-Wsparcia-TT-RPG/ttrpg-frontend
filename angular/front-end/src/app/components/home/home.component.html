@@ -11,12 +11,13 @@
 
   <div class="row justify-content-center my-5">
       <div class="col-md-8 text-center" *ngIf="isLogged()">
-          <label for="characterSelect">Wybierz postać:</label>
+          <label for="characterSelect">Choose a character:</label>
           <select 
           id="characterSelect" class="form-control my-2 mx-auto" (change)="onCharacterChange($event)" style="width: 200px;">
-              <option value="">--- Wybierz postać ---</option>
+              <option value="">--- Choose a character ---</option>
               <option *ngFor="let character of characters" [value]="character?.id" [selected]="character.id === selectedCharacterId">{{ character.nickname }}</option>
           </select>
+          <button (click)="deleteCharacter()" class="btn btn-outline-danger mx-4 my-4" style="width: 200px;">Delete character</button>
 
           <button (click)="goToCharacterBoard()" class="btn btn-outline-dark mx-4 my-4" style="width: 200px;">Go to character board</button>
       </div>

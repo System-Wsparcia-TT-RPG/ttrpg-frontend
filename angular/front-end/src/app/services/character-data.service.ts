@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { catchError } from 'rxjs/operators';
+import { catchError, finalize, map } from 'rxjs/operators';
 import { BehaviorSubject } from 'rxjs';
 import { Character, Full } from '../models';
 
@@ -51,7 +51,6 @@ export class CharacterDataService {
 
   set charId(newId: number) {
     let character = this._characters.value.get(newId);
-    console.log("xxx", character, newId, this._characters.value);
     if (character) {
       this._charId.next(newId);
       this._currentCharacter.next(character);
@@ -96,5 +95,18 @@ export class CharacterDataService {
         })
       );
     return resp;
+  }
+
+  deleteCharacter(id: number): Observable<void> {
+    let response = this.http
+      .delete(`${this.apiUrl}/character/${id}/`)
+      .pipe(
+        map((_) => {}),
+        finalize(() => {
+          this.characters = this.characters.filter((x) => x.id != id);
+        })
+      );
+
+    return response;
   }
 }
