@@ -37,7 +37,6 @@ export class RegisterComponent {
       const password = userData.password;
       this.userService.register(uusername, email, password).subscribe(
         response => {
-          console.log(response);
           this.router.navigate(['/login']);
         },
         error => {

@@ -37,7 +37,6 @@ export class LoginComponent {
       const password = userData.password;
       this.userService.login(userName, password).subscribe(
         response => {
-          console.log(response);
           const message = response.message;
           switch (message) {
             case 'Użytkownik istnieje':

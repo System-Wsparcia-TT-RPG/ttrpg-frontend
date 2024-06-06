@@ -11,9 +11,6 @@ import { SingleStatsComponent } from '../single-stats/single-stats.component';
 import { SkillsComponent } from '../skills/skills.component';
 import { CharacterDataService } from '../../services/character-data.service';
 
-
-
-
 @Component({
   selector: 'app-character-board',
   standalone: true,
@@ -38,16 +35,7 @@ export class CharacterBoardComponent {
 
   character: any; // This will hold the fetched data
 
-  baseStats: baseStats = {
-    strength: 0,
-    dexterity: 0,
-    constitution: 0,
-    intelligence: 0,
-    wisdom: 0,
-    charisma: 0,
-  };
-
-  singleStats: singleStats = {
+  singleStats: singleStats | undefined = {
     armor_class: 0,
     initiative: 0,
     speed: 0,
@@ -56,32 +44,20 @@ export class CharacterBoardComponent {
     death_saves: {},
   };
 
-  constructor(private characterDataService: CharacterDataService) { }
+  constructor(public characterDataService: CharacterDataService) { }
 
   ngOnInit(): void {
-    this.characterDataService.getCharacter(1).subscribe({
-      next: (data) => {
-        // add any needed other objects and create interfaes for them
-        this.singleStats = data[0].combat as singleStats;
-        this.baseStats = data[0].ability_scores as baseStats;
-      },
-      error: (err) => {
-        console.error('Failed to fetch skills data', err);
-      }
-    });
 
     this.characterDataService.getCharacters();
+    this.characterDataService.charId = 0;
+
+    this.singleStats = this.characterDataService.currentCharacter?.combat as singleStats;
+    this.characterDataService.characters$.subscribe(characters => {
+      this.character = characters[this.characterDataService.charId];
+    });
   }
 
 
-}
-interface baseStats {
-  strength: number;
-  dexterity: number;
-  constitution: number;
-  intelligence: number;
-  wisdom: number;
-  charisma: number;
 }
 
 interface singleStats {

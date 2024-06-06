@@ -17,7 +17,7 @@ export class CharacterDataService {
   private _currentCharacter = new BehaviorSubject<any>({});
   currentCharacter$ = this._currentCharacter.asObservable();
 
-  private _charId = new BehaviorSubject<number>(-1);
+  private _charId = new BehaviorSubject<number>(0);
   charId$ = this._charId.asObservable();
 
   get characters(): any[] {
@@ -30,9 +30,8 @@ export class CharacterDataService {
   }
 
   get currentCharacter(): any | null {
-    const charId = this._charId.value;
     // return only if current charId is within the length of characters
-    return charId >= 0 && charId < this.characters.length ? this.characters[charId] : null;
+    return this.charId >= 0 && this.charId < this.characters.length ? this.characters[this.charId] : null;
   }
 
   set currentCharacter(character: any) {
@@ -46,7 +45,7 @@ export class CharacterDataService {
 
   set charId(newId: number) {
     this._charId.next(newId);
-    this.currentCharacter = this.characters[newId]
+    this._currentCharacter.next(this.characters[newId]);
   }
 
 
@@ -64,6 +63,11 @@ export class CharacterDataService {
     resp.subscribe({
       next: data => {
         this.characters = data;
+        if (this.characters.length > 0){
+          this.charId = 0;
+          this.currentCharacter = this.characters[this.charId];
+        }
+
       },
       error: async e => { // We can check error status here
         console.error(e);
@@ -81,21 +85,6 @@ export class CharacterDataService {
           throw 'Error fetching character, see console';
         })
       );
-    
-    resp.subscribe({
-      next: data => {
-        try {
-          this.charId = id;
-          this.currentCharacter = data
-        }
-        catch (_e){
-          console.error(_e);
-        }
-      },
-      error: async e => {
-        console.error(e);
-      }
-    })
     return resp;
   }
 }

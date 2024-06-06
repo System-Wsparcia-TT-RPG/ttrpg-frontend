@@ -3,24 +3,24 @@
         <!-- base stats start -->
 
 
-        <app-base-stats [description]="'Strength'" [value]="baseStats.strength" class="col-1"></app-base-stats>
+        <app-base-stats [description]="'strength'" class="col-1"></app-base-stats>
 
-        <app-base-stats [description]="'Dexterity'" [value]="baseStats.dexterity" class="col-1"></app-base-stats>
+        <app-base-stats [description]="'dexterity'" class="col-1"></app-base-stats>
 
-        <app-base-stats [description]="'Concentration'" [value]="baseStats.constitution" class="col-1"></app-base-stats>
+        <app-base-stats [description]="'constitution'" class="col-1"></app-base-stats>
 
-        <app-base-stats [description]="'Inteligence'" [value]="baseStats.intelligence" class="col-1"></app-base-stats>
+        <app-base-stats [description]="'intelligence'" class="col-1"></app-base-stats>
 
-        <app-base-stats [description]="'Wisdom'" [value]="baseStats.wisdom" class="col-1"></app-base-stats>
+        <app-base-stats [description]="'wisdom'" class="col-1"></app-base-stats>
 
-        <app-base-stats [description]="'Charisma'" [value]="baseStats.charisma" class="col-1"></app-base-stats>
+        <app-base-stats [description]="'charisma'" class="col-1"></app-base-stats>
 
         <!-- base stats ends -->
 
         <app-single-stats [description_top]="'Proficiency'" [value]="'+2'" [description_bottom]="'Bonus'" class="col-1">
         </app-single-stats>
 
-        <app-single-stats [description_top]="'Walking'" [value]="singleStats.speed" [description_bottom]="'Speed'"
+        <app-single-stats [description_top]="'Walking'" [value]="singleStats?.speed" [description_bottom]="'Speed'"
             class="col-1">
         </app-single-stats>
 
@@ -52,11 +52,11 @@
         <div class="col-6">
             <div class="row x1">
 
-                <app-single-stats [description_top]="'Initiative'" [value]="singleStats.initiative"
+                <app-single-stats [description_top]="'Initiative'" [value]="singleStats?.initiative"
                     [description_bottom]="'Starting'" class="col-2">
                 </app-single-stats>
 
-                <app-single-stats [description_top]="'Armor'" [value]="singleStats.armor_class"
+                <app-single-stats [description_top]="'Armor'" [value]="singleStats?.armor_class"
                     [description_bottom]="'Class'" class="col-2">
                 </app-single-stats>
 

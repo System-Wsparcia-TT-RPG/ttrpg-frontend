@@ -17,7 +17,6 @@ export class NavbarComponent {
 
   logout() {
     this.userService.logout();
-    console.log(this.userService.isLoggedIn());
   }
 
   isLogged() {

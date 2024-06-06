@@ -16,6 +16,5 @@ export class ActionsComponent {
 
   ngOnInit(): void {
     this.actions = this.characterDataService.characters[0]?.race.actions;
-    console.log(this.actions)
   }
 }

@@ -4,5 +4,10 @@
 <pre *ngIf="character">
     Player nick name is  {{ character?.nickname }}  
     Character sense darvision is {{ character?.race?.senses?.dark_vision }}
-    TEST ONLY! COMPARE WITH TOP RIGHT! Character hp is {{character?.combat?.hit_points}}
+    TEST ONLY! Character str is {{ character?.ability_scores?.strength }}
+    TEST ONLY! Character dxt is {{ character?.ability_scores?.dexterity }}
+    TEST ONLY! Character int is {{ character?.ability_scores?.intelligence }}
+    TEST ONLY! Character cst is {{ character?.ability_scores?.constitution }}
+    TEST ONLY! Character wsd is {{ character?.ability_scores?.wisdom }}
+    TEST ONLY! Character cha is {{ character?.ability_scores?.charisma }}
 </pre>

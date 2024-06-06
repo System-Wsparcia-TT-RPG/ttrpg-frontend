@@ -1,4 +1,6 @@
 import { Component, Input } from '@angular/core';
+import { CharacterDataService } from '../../services/character-data.service';
+import { OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-base-stats',
@@ -9,23 +11,26 @@ import { Component, Input } from '@angular/core';
 })
 
 export class BaseStatsComponent {
-  @Input() value: any;  // Define an input property to receive data
   @Input() description: any
-
+  character: any = {};
   total: number = 0;
 
-    // Method to increment the value
-    incrementValue() {
-      this.value += 1;
-      this.total += 1;
+  constructor(private charService: CharacterDataService){}
 
-    }
+  ngOnInit(){
+    this.character = this.charService.currentCharacter;
+  }
+
+  incrementValue() {
+    this.character.ability_scores[this.description]++;
+
+    this.total++;
+  }
   
-    // Method to decrement the value
-    decrementValue() {
-      this.value -= 1;
-      this.total -= 1;
-
-    }
+  decrementValue() {
+    this.character.ability_scores[this.description]--;
+    
+    this.total--;
+  }
     
 }

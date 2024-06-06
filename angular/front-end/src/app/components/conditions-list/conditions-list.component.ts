@@ -19,9 +19,6 @@ export class ConditionsListComponent {
           next: (data) => {
             this.hit_dice = data[0].combat["hit_dice"];
             this.damage_dice = data[0].race.actions[0]["damage_dice"];
-            // console.log(this.hit_dice)
-            console.log(this.damage_dice)
-
           },
           error: (err) => {
             console.error('Failed to fetch skills data', err);

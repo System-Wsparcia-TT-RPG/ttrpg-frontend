@@ -18,18 +18,6 @@ export class SensesComponent implements OnInit {
   constructor(private characterDataService: CharacterDataService) { }
 
   ngOnInit() {
-    // this.characterDataService.getJsonData().subscribe({
-    //   next: (data) => {
-    //     this.character = data;
-    //   },
-    //   error: (err) => {
-    //     console.error('Failed to fetch data', err);
-    //   }
-    // });
-    this.characterDataService.getCharacters().subscribe({
-      next: data => {
-        this.character = this.characterDataService.characters[0];
-      }
-    })
+    this.character = this.characterDataService.currentCharacter;
   }
 }
