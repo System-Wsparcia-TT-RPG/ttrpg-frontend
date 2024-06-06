@@ -48,7 +48,6 @@ export class CharacterBoardComponent {
 
   ngOnInit(): void {
     this.characterDataService.getCharacters();
-    this.characterDataService.charId = 0;
 
     this.singleStats = this.characterDataService.currentCharacter?.combat as singleStats;
     this.characterDataService.currentCharacter;
