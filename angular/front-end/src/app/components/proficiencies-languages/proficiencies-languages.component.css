@@ -1,4 +1,4 @@
-.scrollable {
+/* .scrollable {
     max-height: 200px;
     overflow-y: auto;
 }
@@ -11,4 +11,25 @@
 .custom_table th {
     background-color: transparent;
     color: black;
+} */
+
+.proficiency-section h4 {
+    font-size: 18px;
+    color: black;
+    margin-bottom: 5px; /* Mniejszy odstęp poniżej nagłówka */
 }
+
+.proficiency-section p {
+    font-size: 16px;
+    color: black;
+    margin-bottom: 10px; /* Mniejszy odstęp poniżej paragrafu */
+}
+
+hr {
+    border: none;
+    border-top: 1px solid black;
+    margin: 10px 0; /* Mniejszy odstęp między sekcjami */
+}
+
+
+

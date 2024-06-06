@@ -1,4 +1,4 @@
-<ng-container *ngIf="character">
+<!-- <ng-container *ngIf="character">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
@@ -39,4 +39,30 @@
             </div>
         </div>
     </div>
+</ng-container> -->
+
+<ng-container *ngIf="character">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="proficiency-section" *ngIf="character.armor_proficiencies?.length">
+                    <h4>Armor Proficiencies</h4>
+                    <p>{{ character.armor_proficiencies.join(', ') }}</p>
+                    <hr>
+                </div>
+                <div class="proficiency-section" *ngIf="character.weapon_proficiencies?.length">
+                    <h4>Weapon Proficiencies</h4>
+                    <p>{{ character.weapon_proficiencies.join(', ') }}</p>
+                    <hr>
+                </div>
+                <div class="proficiency-section" *ngIf="character.tool_proficiencies?.length">
+                    <h4>Tool Proficiencies</h4>
+                    <p>{{ character.tool_proficiencies.join(', ') }}</p>
+                    <hr>
+                </div>
+            </div>
+        </div>
+    </div>
 </ng-container>
+
+
