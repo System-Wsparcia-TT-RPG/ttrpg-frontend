@@ -25,13 +25,12 @@ export class SingleStatsComponent {
   }
 
   incrementValue() {
-    this.character.combat[this.description]++; // chnage to proper vals
+    this.character.combat[this.description]++; 
     this.total++;
   }
   
   decrementValue() {
-    this.character.combat[this.description]--; // chnage to proper vals
-  
+    this.character.combat[this.description]--; 
     this.total--;
   }
 }
