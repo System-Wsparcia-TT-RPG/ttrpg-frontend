@@ -1,0 +1,21 @@
+<div class="mx-auto mt-5" style="max-width: 400px; border-radius: 15px;">
+    <div class="card-body p-5" style="height: 370px;">
+        <h2 class="card-title text-center mb-3">Login</h2>
+        <form [formGroup]="loginForm">
+            <div class="form-group">
+                <label for="username">Username:</label>
+                <input type="text" class="form-control" formControlName="username" id="username" required
+                    (focus)="resetErrorState()">
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" class="form-control" formControlName="password" id="password" required
+                    (focus)="resetErrorState()">
+            </div>
+            <div class="d-flex justify-content-center mt-4">
+                <button type="button" class="btn btn-outline-dark" (click)="login()">Log in</button>
+            </div>
+            <div *ngIf="incorrecCredentials" class="text-danger mt-4 text-center">{{errorMessage}}</div>
+        </form>
+    </div>
+</div>

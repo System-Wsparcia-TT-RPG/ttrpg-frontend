@@ -1,0 +1,5 @@
+.card-body {
+    border: 20px solid transparent;
+    background: transparent;
+    border-image: url("/assets/ramka.png") stretch 80;
+}
