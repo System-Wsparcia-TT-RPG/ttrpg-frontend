@@ -9,11 +9,5 @@ import { Component } from '@angular/core';
   styleUrl: './extras.component.css'
 })
 export class ExtrasComponent {
-  extras: any[] = [];
-
-  constructor(private characterDataService: CharacterDataService) { }
-
-  ngOnInit(): void {
-    this.extras = this.characterDataService.characters[0]?.extras;
-  }
+  
 }
