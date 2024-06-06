@@ -1,6 +1,5 @@
 import { Component, Input } from '@angular/core';
 import { CharacterDataService } from '../../services/character-data.service';
-import { OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-base-stats',

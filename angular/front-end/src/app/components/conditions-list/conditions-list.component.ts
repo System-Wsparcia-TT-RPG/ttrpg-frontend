@@ -10,20 +10,36 @@ import { CharacterDataService } from '../../services/character-data.service';
   styleUrl: './conditions-list.component.css'
 })
 export class ConditionsListComponent {
-  hit_dice: string = "No current hit dice";
+  count: any;
+  sides: any;
   damage_dice: any = {}
+  character: any ;
   constructor(private characterDataService: CharacterDataService) { }
 
   ngOnInit(): void {
-    this.characterDataService.getCharacter(1).subscribe({
-          next: (data) => {
-            this.hit_dice = data[0].combat["hit_dice"];
-            this.damage_dice = data[0].race.actions[0]["damage_dice"];
-          },
-          error: (err) => {
-            console.error('Failed to fetch skills data', err);
-          }
-    });
+    this.character = this.characterDataService.currentCharacter;
+  
+    this.damage_dice = this.character?.race.actions[0]["damage_dice"];
+    this.count = this.damage_dice?.count
+    this.sides = this.damage_dice?.sides
+
+  }
+
+  incrementSides() {
+    this.character.race.actions[0]["damage_dice"]["sides"]++
+   }
+  
+  decrementSides() {
+    this.character.race.actions[0]["damage_dice"]["sides"]--
+  }
+
+
+  incrementCount() {
+    this.character.race.actions[0]["damage_dice"]["count"]++
+   }
+  
+  decrementCount() {
+    this.character.race.actions[0]["damage_dice"]["count"]--
   }
 
 }

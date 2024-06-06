@@ -1,7 +1,15 @@
 <div class="condition-box">
-  
+    <div class="buttons">
+        <button (click)="incrementCount()">+</button>
+        <button (click)="decrementCount()">-</button>
+
+    </div>
     <div class="condition-item">
-        Number of dmg dice: <span class="dice-value">{{ damage_dice.count }}</span>
-        Number of sides: <span class="dice-value">{{ damage_dice.sides }}</span>
+        Number of dmg dice: <span class="dice-value">{{ damage_dice?.count }}</span>
+        Number of sides: <span class="dice-value">{{ damage_dice?.sides }}</span>
+    </div>
+    <div class="buttons">
+        <button (click)="incrementSides()">+</button>
+        <button (click)="decrementSides()">-</button>
     </div>
 </div>

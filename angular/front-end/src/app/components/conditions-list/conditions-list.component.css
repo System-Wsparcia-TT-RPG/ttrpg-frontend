@@ -1,20 +1,23 @@
 .condition-box {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     border: 2px solid #ec9118;
     border-radius: 10px;
     font-family: Arial, sans-serif;
     background: white;
     text-align: center;
     position: relative;
-    padding:6px;
+    padding: 6px;
 }
 
 .condition-item {
     font-weight: bold;
     color: #555;
+    margin: 0 10px;
+    flex-grow: 1;
+    text-align: center;
 }
 
 .dice-value {
@@ -24,4 +27,16 @@
     border: 1px solid #ec9118;
     border-radius: 10px;
     background: #f0f0f0;
+}
+
+button {
+    color: white;
+    margin: 2px;
+    background-color: #ec9118;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+.buttons button {
+    margin: 2px;
 }

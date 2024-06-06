@@ -4,6 +4,8 @@ import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { CharacterDataService } from '../../services/character-data.service';
 import { OnInit } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+
 
 @Component({
   selector: 'app-home',
@@ -24,7 +26,6 @@ export class HomeComponent implements OnInit{
 
 ngOnInit(): void {
   this.characters = this.characterDataService.characters;
-  // this.characterDataService.charId = 1
   }
   isLogged() {
     return this.userService.isLoggedIn();
@@ -43,7 +44,7 @@ ngOnInit(): void {
   }
 
   test() {
-    console.log('test');
+    // console.log('test');
   }
 
   onCharacterChange(event: any) {
