@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-notes',
   standalone: true,
-  imports: [],
+  imports: [FormsModule],
   templateUrl: './notes.component.html',
   styleUrl: './notes.component.css'
 })
