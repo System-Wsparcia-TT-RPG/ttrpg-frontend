@@ -49,7 +49,7 @@ export class HomeComponent implements OnInit{
   }
 
   onCharacterChange(event: any) {
-    this.characterDataService.charId = event.target.value - 1 ;
+    this.characterDataService.charId = event.target.value - 1;
     this.characterDataService.currentCharacter = this.characters[this.characterDataService.charId];
   }
   
