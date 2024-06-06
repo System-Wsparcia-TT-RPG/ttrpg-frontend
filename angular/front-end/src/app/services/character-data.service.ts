@@ -45,12 +45,8 @@ export class CharacterDataService {
 
   set charId(newId: number) {
     this._charId.next(newId);
-    this._currentCharacter.next(this.characters[newId]);
-    console.log('Setting charId to', newId);
-    console.log('Current character:', this.currentCharacter);
-    
+    this._currentCharacter.next(this.characters[newId]);    
   }
-
 
   constructor(private http: HttpClient) { }
 
@@ -67,7 +63,6 @@ export class CharacterDataService {
       next: data => {
         this.characters = data;
         if (this.characters.length > 0){
-          console.log('Setting charId to 0');
           this.charId = 0;
           this.currentCharacter = this.characters[this.charId];
         }
