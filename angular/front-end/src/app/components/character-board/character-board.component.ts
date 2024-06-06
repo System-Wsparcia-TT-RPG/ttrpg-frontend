@@ -40,7 +40,7 @@ export class CharacterBoardComponent {
     initiative: 0,
     speed: 0,
     hit_points: 0,
-    hit_dice: "",
+    id: 0,
     death_saves: {},
   };
 
@@ -60,6 +60,6 @@ interface singleStats {
   initiative: number;
   speed: number;
   hit_points: number;
-  hit_dice: string;
+  id: number;
   death_saves: any;
 }

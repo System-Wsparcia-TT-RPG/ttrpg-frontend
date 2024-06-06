@@ -17,14 +17,14 @@
 
         <!-- base stats ends -->
 
-        <app-single-stats [description_top]="'Proficiency'" [value]="'+2'" [description_bottom]="'Bonus'" class="col-1">
+        <app-single-stats [description_top]="'Proficiency'" [description]="'id'" [description_bottom]="'Bonus'" class="col-1">
         </app-single-stats>
 
-        <app-single-stats [description_top]="'Walking'" [value]="singleStats?.speed" [description_bottom]="'Speed'"
+        <app-single-stats [description_top]="'Walking'" [description]="'speed'" [description_bottom]="'Speed'"
             class="col-1">
         </app-single-stats>
 
-        <app-single-stats [description_top]="'Magic'" [value]="22" [description_bottom]="'Inspiration'" class="col-1">
+        <app-single-stats [description_top]="'Magic'" [description]="'hit_points'" [description_bottom]="'Inspiration'" class="col-1">
         </app-single-stats>
 
         <app-hit-points class="col-3">
@@ -52,11 +52,11 @@
         <div class="col-6">
             <div class="row x1">
 
-                <app-single-stats [description_top]="'Initiative'" [value]="singleStats?.initiative"
+                <app-single-stats [description_top]="'Initiative'" [description]="'initiative'"
                     [description_bottom]="'Starting'" class="col-2">
                 </app-single-stats>
 
-                <app-single-stats [description_top]="'Armor'" [value]="singleStats?.armor_class"
+                <app-single-stats [description_top]="'Armor'" [description]="'armor_class'"
                     [description_bottom]="'Class'" class="col-2">
                 </app-single-stats>
 

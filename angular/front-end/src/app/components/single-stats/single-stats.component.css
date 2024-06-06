@@ -1,25 +1,64 @@
-.styled-box {
+.stat-box {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    border: 2px solid #3819e9;
+    border: 2px solid #1a26cb;
     border-radius: 10px;
     font-family: Arial, sans-serif;
     background: white;
-    /* box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2); */
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
     text-align: center;
-}
-
-.description-top {
+    position: relative;
+  }
+  
+  .description {
     font-weight: bold;
     color: #555;
-}
-
-
-
-.description-bottom {
-    font-size: 10px;
-    color: #555;
-}
-
+    margin-bottom: 10px;
+  }
+  
+  .value-total {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .value {
+    font-weight: bold;
+    color: black;
+    margin-right:10px;
+  }
+  
+  .total {
+    font-weight: bold;
+    color: black;
+    border: 2px solid #1a26cb;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: white;
+  }
+  
+  .buttons {
+    display: none; /* Hide the buttons for now */
+  }
+  
+  .stat-box:hover .buttons {
+    display: flex;
+    position: absolute;
+  }
+  
+  button {
+    color: white;
+    background-color: #1a26cb;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #1a26cb;
+  }
+  

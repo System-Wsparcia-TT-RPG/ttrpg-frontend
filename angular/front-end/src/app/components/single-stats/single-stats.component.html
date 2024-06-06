@@ -1,5 +1,12 @@
-<pre class="styled-box">
-    <span class="description-top">{{ description_top }}</span>
-    <span class="value">{{ value }}</span>
-    <span class="description-bottom">{{ description_bottom }}</span>
-</pre>
+<div class="stat-box">
+    <div class="description">{{ description_top }}</div>
+    <div class="value-total">
+        <div class="value">{{ this.character?.combat[description] }}</div>
+        <div class="total">{{ total }}</div>
+    </div>
+    <div class="buttons">
+        <button (click)="decrementValue()">-</button>
+        <button (click)="incrementValue()">+</button>
+    </div>
+</div>
+
