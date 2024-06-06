@@ -1,1 +1,18 @@
-<p>actions works!</p>
+<table class="actions-table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Damage</th>
+            <th>Legendary</th>
+            <th>Reaction</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let action of actions">
+            <td>{{action.name}}</td>
+            <td>{{action.damage_dice.count}}d{{action.damage_dice.sides}}+{{action.damage_bonus}}</td>
+            <td>{{action.legendary}}</td>
+            <td>{{action.reaction}}</td>
+        </tr>
+    </tbody>
+</table>

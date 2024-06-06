@@ -10,20 +10,11 @@ import { CommonModule } from '@angular/common';
   styleUrl: './spells.component.css'
 })
 export class SpellsComponent {
-
   spells: any[] = [];
 
   constructor(private characterDataService: CharacterDataService) { }
 
   ngOnInit(): void {
-    this.characterDataService.getCharacter(1).subscribe({
-      next: (data) => {
-        this.spells = data[0].spells;
-      },
-      error: (err) => {
-        console.error('Failed to fetch spells data', err);
-      }
-    });
+    this.spells = this.characterDataService.characters[0]?.spells;
   }
-
 }
