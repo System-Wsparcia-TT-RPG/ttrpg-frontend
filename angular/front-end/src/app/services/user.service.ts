@@ -1,4 +1,5 @@
-import { Injectable } from '@angular/core';
+import { Injectable, PLATFORM_ID, Inject } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
@@ -10,13 +11,20 @@ export class UserService {
 
   private authUrl = 'http://localhost:8000/api/receive_data/'; // API endpoint
 
-  private loggedUser = "";
-  private isLogged = false;
-
   constructor(
     private http: HttpClient,
-    private router: Router
-  ) { }
+    private router: Router,
+    @Inject(PLATFORM_ID) private platformId: Object
+  ) { 
+    if (isPlatformBrowser(this.platformId)) {
+      if (localStorage.getItem("isLogged") === null) {
+        localStorage.setItem("isLogged", "false");
+      }
+      if (localStorage.getItem("loggedUser") === null) {
+        localStorage.setItem("loggedUser", "");
+      }
+    }
+  }
 
   login(username: string, password: string): Observable<any> {
     const loginData = {
@@ -41,25 +49,37 @@ export class UserService {
   }
 
   logout() {
-    this.loggedUser = "";
-    this.isLogged = false;
+    if (isPlatformBrowser(this.platformId)) {
+      localStorage.setItem("loggedUser", "");
+      localStorage.setItem("isLogged", "false");
+    }
     this.router.navigate(['/home']);
   }
 
   setLogged(isLogged: boolean) {
-    this.isLogged = isLogged;
-  
+    if (isPlatformBrowser(this.platformId)) {
+      localStorage.setItem("isLogged", isLogged.toString());
+    }
   }
 
   isLoggedIn() {
-    return this.isLogged;
+    if (isPlatformBrowser(this.platformId)) {
+      return localStorage.getItem("isLogged") === "true";
+    }
+    return false;
   }
 
   setLoggedUser(user: string) {
-    this.loggedUser = user;
+    if (isPlatformBrowser(this.platformId)) {
+      localStorage.setItem("loggedUser", user);
+    }
   }
 
   getLoggedUser() {
-    return this.loggedUser;
+    if (isPlatformBrowser(this.platformId)) {
+      return localStorage.getItem("loggedUser");
+    }
+    return null;
   }
 }
+
