@@ -1,4 +1,7 @@
-<div class="notes-container">
-    <h2>My Notes</h2>
-    <input type="text" #newNoteInput maxlength="1000" placeholder="Add a new note">
+<div>
+  <input [(ngModel)]="newNote" placeholder="Enter a new note" />
+  <button (click)="addNote()">Add Note</button>
 </div>
+<ul>
+  <li *ngFor="let note of notes">{{ note }}</li>
+</ul>
