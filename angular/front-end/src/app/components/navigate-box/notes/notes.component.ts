@@ -12,7 +12,7 @@ import { FormsModule } from '@angular/forms';
 
 export class NotesComponent {
   newNote: string = ''; 
-  notes: string[] = ['Note 1', 'Note 2', 'Note 3'];
+  notes: string[] = ['My notes:'];
 
   addNote(): void {
     if (this.newNote.trim() !== '') {
