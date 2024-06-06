@@ -14,10 +14,11 @@ export class NotesComponent {
   newNote: string = ''; 
   notes: string[] = ['Note 1', 'Note 2', 'Note 3'];
 
-  addNote(): void {  // Removed the parameter from the method and will use the class property directly
+  addNote(): void {
     if (this.newNote.trim() !== '') {
       this.notes.push(this.newNote);
-      this.newNote = '';  // Clear the input after adding the note
+      this.newNote = '';  
     }
   }
 }
+
