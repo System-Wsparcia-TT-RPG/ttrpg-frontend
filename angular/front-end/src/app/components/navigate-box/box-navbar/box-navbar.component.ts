@@ -9,7 +9,7 @@ import { Component, EventEmitter, Output } from '@angular/core';
   styleUrl: './box-navbar.component.css'
 })
 export class BoxNavbarComponent {
-  public active: number = 0;
+  public active: number = 1;
   @Output() current: EventEmitter<number> = new EventEmitter<number>();
 
   change_current(new_current: number) {

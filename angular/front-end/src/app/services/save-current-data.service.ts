@@ -35,14 +35,13 @@ export class SaveCurrentDataService {
   }
 
   getData(url: string): Observable<any> {
-    var resp = this.http.get(url)
+    const accessToken = localStorage.getItem('accessToken');
+    return this.http.get(url, {headers: {Authorization: `Bearer ${accessToken}`}})
       .pipe(
         catchError(error => {
           console.error('Error fetching characters:', error);
           throw 'Error fetching data, see console';
         })
       );
-
-    return resp;
   }
 }
