@@ -12,13 +12,16 @@ import { FormsModule } from '@angular/forms';
 
 export class NotesComponent {
   newNote: string = ''; 
-  notes: string[] = ['My notes:'];
+  notes: string[] = [];
 
   addNote(): void {
     if (this.newNote.trim() !== '') {
       this.notes.push(this.newNote);
       this.newNote = '';  
     }
+  }
+  removeNote(index: number): void {
+    this.notes.splice(index, 1);
   }
 }
 
