@@ -3,6 +3,7 @@ import { CharacterDataService } from '../../../services/character-data.service';
 import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { SaveCurrentDataService } from '../../../services/save-current-data.service';
 
 @Component({
   selector: 'app-spells',
@@ -16,7 +17,7 @@ export class SpellsComponent {
   character: any = {};
   allSpells: any[] = [];
 
-  constructor(private characterService: CharacterDataService, private http: HttpClient) { }
+  constructor(private characterService: CharacterDataService, private saveDataService: SaveCurrentDataService) { }
 
   removeSpell(id: number) {
     this.characterService.currentCharacter.spells = this.characterService.currentCharacter.spells.filter((spell: any) => spell.id != id);
@@ -37,7 +38,7 @@ export class SpellsComponent {
   ngOnInit(): void {
     this.character = this.characterService.currentCharacter;
 
-    this.http.get<any[]>('http://localhost:8000/api/spell/all/4/').subscribe({
+    this.saveDataService.getData('http://localhost:8000/api/spell/all/4/').subscribe({
       next: data => {
         this.allSpells = data;
       },

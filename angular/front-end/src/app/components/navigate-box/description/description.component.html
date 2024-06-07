@@ -1,5 +1,5 @@
 <h3>Background</h3>
-<p>{{this.background?.description}}</p>
+<p>{{this.background.description}}</p>
 <h3>Characteristics</h3>
 <table>
     <thead>
@@ -14,24 +14,43 @@
     </thead>
     <tbody>
         <tr>
-            <td>{{this.details?.age}}</td>
-            <td>{{this.details?.height}}</td>
-            <td>{{this.details?.weight}}</td>
-            <td>{{this.details?.hair}}</td>
-            <td>{{this.details?.skin}}</td>
-            <td>{{this.details?.eyes}}</td>
+            <td>{{this.details.age}}</td>
+            <td>{{this.details.height}}</td>
+            <td>{{this.details.weight}}</td>
+            <td>{{this.details.hair}}</td>
+            <td>{{this.details.skin}}</td>
+            <td>{{this.details.eyes}}</td>
+        </tr>
+    </tbody>
+</table>
+<h3>Actions</h3>
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Damage</th>
+            <th>Legendary</th>
+            <th>Reaction</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let action of race.actions">
+            <td>{{action.name}}</td>
+            <td>{{action.damage_dice.count}}d{{action.damage_dice.sides}}+{{action.damage_bonus}}</td>
+            <td>{{action.legendary}}</td>
+            <td>{{action.reaction}}</td>
         </tr>
     </tbody>
 </table>
 <h5>Backstory</h5>
-<p>{{this.details?.backstory}}</p>
+<p>{{this.details.backstory}}</p>
 <h5>Personality</h5>
-<p>{{this.details?.personality}}</p>
+<p>{{this.details.personality}}</p>
 <h5>Physical</h5>
-<p>{{this.details?.physical}}</p>
+<p>{{this.details.physical}}</p>
 <h5>Ideals</h5>
-<p>{{this.details?.ideal}}</p>
+<p>{{this.details.ideal}}</p>
 <h5>Flaws</h5>
-<p>{{this.details?.flaw}}</p>
+<p>{{this.details.flaw}}</p>
 <h5>Bond</h5>
-<p>{{this.details?.bond}}</p>
+<p>{{this.details.bond}}</p>

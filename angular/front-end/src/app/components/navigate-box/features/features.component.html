@@ -4,22 +4,18 @@
             <th>Name</th>
             <th class="description-column">Description</th>
             <th>Source</th>
-            <th>Action</th>
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let feature of character?.features">
-            <td>{{feature.name}}</td>
-            <td class="description-column">{{feature.description}}</td>
-            <td>{{feature.source}}</td>
-            <td><button class="removeButton" (click)="removeFeature(feature.id)">Remove</button></td>
-        </tr>
+        <ng-container *ngFor="let class of character?.classes">
+            <tr>
+                <td colspan="3" class="header">{{class.name}}</td>
+            </tr>
+            <tr *ngFor="let feature of class.features">
+                <td>{{feature.name}}</td>
+                <td class="description-column">{{feature.description}}</td>
+                <td>{{feature.source}}</td>
+            </tr>
+        </ng-container>
     </tbody>
 </table>
-<div class="add-feature-form">
-    <label for="addFeature">Add a feature:</label>
-    <select [(ngModel)]="selectedFeatureId" name="addFeature" id="addFeature">
-        <option *ngFor="let feature of availableFeatures()" [value]="feature.id">{{feature.name}}</option>
-    </select>
-    <button class="addButton" (click)="addFeature()">Add</button>
-</div>

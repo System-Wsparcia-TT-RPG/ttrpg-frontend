@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 import { CharacterDataService } from '../../../services/character-data.service';
 import { CommonModule } from '@angular/common';
-import { HttpClient } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { SaveCurrentDataService } from '../../../services/save-current-data.service';
+import { Character, Equipment, Full } from '../../../models';
 
 @Component({
   selector: 'app-equipment',
@@ -13,10 +14,10 @@ import { FormsModule } from '@angular/forms';
 })
 export class EquipmentComponent {
   selectedEquipmentId: any = -1;
-  character: any = {};
-  allEquipment: any[] = [];
+  character: Full<Character> = {} as Full<Character>;
+  allEquipment: Full<Equipment>[] = [];
 
-  constructor(private characterService: CharacterDataService, private http: HttpClient) { }
+  constructor(private characterService: CharacterDataService, private saveDataService: SaveCurrentDataService) { }
 
   removeEquipment(id: number) {
     this.characterService.currentCharacter.equipment = this.characterService.currentCharacter.equipment.filter((e: any) => e.id != id);
@@ -26,7 +27,7 @@ export class EquipmentComponent {
     if (this.selectedEquipmentId === -1)
       this.selectedEquipmentId = this.availableEquipment()[0].id;
 
-    this.characterService.currentCharacter.equipment.push(this.allEquipment.find(e => e.id == this.selectedEquipmentId));
+    this.characterService.currentCharacter.equipment.push(this.allEquipment.find(e => e.id == this.selectedEquipmentId) as Full<Equipment>);
     this.selectedEquipmentId = -1;
   }
 
@@ -37,7 +38,7 @@ export class EquipmentComponent {
   ngOnInit(): void {
     this.character = this.characterService.currentCharacter;
 
-    this.http.get<any[]>('http://localhost:8000/api/equipment/all/4/').subscribe({
+    this.saveDataService.getData('http://localhost:8000/api/equipment/all/4/').subscribe({
       next: data => {
         this.allEquipment = data;
       },
