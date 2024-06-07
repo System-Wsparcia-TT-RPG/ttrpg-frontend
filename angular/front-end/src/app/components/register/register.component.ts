@@ -32,10 +32,12 @@ export class RegisterComponent {
   async register() {
     if (this.registerForm.valid) {
       const userData = this.registerForm.value;
-      const uusername = userData.username;
+
+      const username = userData.username;
       const email = userData.email;
       const password = userData.password;
-      this.userService.register(uusername, email, password).subscribe(
+      
+      this.userService.register(username, email, password).subscribe(
         response => {
           this.router.navigate(['/login']);
         },

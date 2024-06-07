@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { catchError, finalize, map } from 'rxjs/operators';
 import { BehaviorSubject } from 'rxjs';
 import { Character, Full } from '../models';
+import { UserService } from './user.service';
 
 @Injectable({
   providedIn: 'root',
@@ -57,9 +58,16 @@ export class CharacterDataService {
     }
   }
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private userService: UserService) {}
 
   getCharacters(): Observable<Full<Character>[]> {
+
+    if (!this.userService.isLoggedIn()) {
+      return new Observable<Full<Character>[]>((subscriber) => {
+        subscriber.error('User not logged in');
+      });
+    }
+
     let resp = this.http.get<Full<Character>[]>(this.apiUrl + "/character/all/4/").pipe(
       catchError((error) => {
         console.error('Error fetching characters:', error);

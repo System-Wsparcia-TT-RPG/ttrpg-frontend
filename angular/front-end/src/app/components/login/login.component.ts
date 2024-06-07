@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { UserService } from '../../services/user.service';
 import { Router } from '@angular/router';
+import { CharacterDataService } from '../../services/character-data.service';
 
 @Component({
   selector: 'app-login',
@@ -16,13 +17,14 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent {
   loginForm: FormGroup;
-  incorrecCredentials = false;
+  incorrectCredentials = false;
   errorMessage = '';
 
   constructor(
     private fb: FormBuilder,
     private userService: UserService,
     private router: Router,
+    private characterDataService: CharacterDataService
   ) {
     this.loginForm = this.fb.group({
       username: ['', Validators.required],
@@ -30,31 +32,25 @@ export class LoginComponent {
     });
   }
 
-  async login() {
+  login() {
     if (this.loginForm.valid) {
       const userData = this.loginForm.value;
-      const userName = userData.username;
+      const username = userData.username;
       const password = userData.password;
-      this.userService.login(userName, password).subscribe(
-        response => {
-          const message = response.message;
-          switch (message) {
-            case 'Użytkownik istnieje':
-              this.userService.setLoggedUser(userName);
-              this.userService.setLogged(true);
-              this.router.navigate(['/home']);
-              break;
-            case 'Nieprawidłowe dane':
-            case 'Błędne hasło':
-              this.incorrecCredentials = true;
-              this.errorMessage = message;
-              this.loginForm.reset();
-              break;
-
-          };
+      this.userService.login(username, password).subscribe(
+        () => {
+          // Successfully logged in
+          this.characterDataService.getCharacters();
+          console.log(this.characterDataService.characters);
+          this.router.navigate(['/home']);
         },
-        error => {
-          window.alert(error);
+        (error) => {
+          if (error.status === 401) {
+            this.incorrectCredentials = true;
+            this.errorMessage = 'Incorrect username or password.';
+          } else {
+            this.errorMessage = 'An unexpected error occurred. Please try again later.';
+          }
           this.loginForm.reset();
         }
       );
@@ -62,6 +58,6 @@ export class LoginComponent {
   }
 
   resetErrorState() {
-    this.incorrecCredentials = false;
+    this.incorrectCredentials = false;
   }
 }

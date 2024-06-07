@@ -3,19 +3,22 @@ import { isPlatformBrowser } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
+import { tap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
 
-  private authUrl = 'http://localhost:8000/api/receive_data/'; // API endpoint
+  private authUrl = 'http://localhost:8000/api/token/';
+  private accessTokenKey = 'accessToken';
+  private refreshTokenKey = 'refreshToken';
 
   constructor(
     private http: HttpClient,
     private router: Router,
     @Inject(PLATFORM_ID) private platformId: Object
-  ) { 
+  ) {
     if (isPlatformBrowser(this.platformId)) {
       if (localStorage.getItem("isLogged") === null) {
         localStorage.setItem("isLogged", "false");
@@ -28,19 +31,26 @@ export class UserService {
 
   login(username: string, password: string): Observable<any> {
     const loginData = {
-      operation: 'L',
-      login: username,
+      username: username,
       password: password
     };
 
-    return this.http.post(this.authUrl, loginData);
+    return this.http.post(this.authUrl, loginData).pipe(
+      tap((response: any) => {
+        if (isPlatformBrowser(this.platformId)) {
+          localStorage.setItem(this.accessTokenKey, response.access);
+          localStorage.setItem(this.refreshTokenKey, response.refresh);
+          localStorage.setItem("isLogged", "true");
+          localStorage.setItem("loggedUser", username);
+        }
+      })
+    );
   }
 
+  register(username: string, email: string, password: string): Observable<any> {
 
-  register(userData: string, email: string, password: string): Observable<any> {
     const registerData = {
-      operation: 'R',
-      login: userData,
+      username: username,
       email: email,
       password: password
     };
@@ -50,10 +60,26 @@ export class UserService {
 
   logout() {
     if (isPlatformBrowser(this.platformId)) {
+      localStorage.removeItem(this.accessTokenKey);
+      localStorage.removeItem(this.refreshTokenKey);
       localStorage.setItem("loggedUser", "");
       localStorage.setItem("isLogged", "false");
     }
     this.router.navigate(['/home']);
+  }
+
+  getAccessToken(): string | null {
+    if (isPlatformBrowser(this.platformId)) {
+      return localStorage.getItem(this.accessTokenKey);
+    }
+    return null;
+  }
+
+  getRefreshToken(): string | null {
+    if (isPlatformBrowser(this.platformId)) {
+      return localStorage.getItem(this.refreshTokenKey);
+    }
+    return null;
   }
 
   setLogged(isLogged: boolean) {
@@ -82,4 +108,3 @@ export class UserService {
     return null;
   }
 }
-
