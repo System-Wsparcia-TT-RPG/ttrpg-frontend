@@ -10,7 +10,6 @@ import { tap } from 'rxjs/operators';
 })
 export class UserService {
 
-  private authUrl = 'http://localhost:8000/api/token/';
   private accessTokenKey = 'accessToken';
   private refreshTokenKey = 'refreshToken';
 
@@ -35,7 +34,7 @@ export class UserService {
       password: password
     };
 
-    return this.http.post(this.authUrl, loginData).pipe(
+    return this.http.post('http://localhost:8000/api/token/', loginData).pipe(
       tap((response: any) => {
         if (isPlatformBrowser(this.platformId)) {
           localStorage.setItem(this.accessTokenKey, response.access);
@@ -51,11 +50,11 @@ export class UserService {
 
     const registerData = {
       username: username,
-      email: email,
+      // email: email,
       password: password
     };
 
-    return this.http.post(this.authUrl, registerData);
+    return this.http.post('http://localhost:8000/api/user/create/', registerData);
   }
 
   logout() {
