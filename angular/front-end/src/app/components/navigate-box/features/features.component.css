@@ -27,3 +27,7 @@
   margin: 0 10px;
 }
 
+.feature-table .header {
+  text-align: center;
+  font-weight: bold;
+}
