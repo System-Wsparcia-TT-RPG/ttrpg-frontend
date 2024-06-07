@@ -1,7 +1,58 @@
 <h2>Character Senses</h2>
 
-
-<pre *ngIf="character">
-    Player nick name is  {{ character?.nickname }}  
-    Character sense darvision is {{ character?.race?.senses?.dark_vision }}
-</pre>
+<table>
+    <thead></thead>
+    <tbody>
+        <tr>
+            <td>
+                <div>
+                    <span>dark_vision</span>
+                    <input type="number" class="inputValue" 
+                    [ngModel]="character?.saving_throws?.strength" 
+                    (ngModelChange)="updateSenses('dark_vision', $event)">
+                </div>
+            </td>
+            </tr>
+            <tr>
+            <td>
+                <div>
+                    <span>blind_sight</span>
+                    <input type="number" class="inputValue" 
+                    [ngModel]="character?.saving_throws?.intelligence" 
+                    (ngModelChange)="updateSenses('blind_sight', $event)">
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div>
+                    <span>tremor_sense</span>
+                    <input type="number" class="inputValue" 
+                    [ngModel]="character?.saving_throws?.wisdom" 
+                    (ngModelChange)="updateSenses('tremor_sense', $event)">
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div>
+                    <span>truesight</span>
+                    <input type="number" class="inputValue" 
+                    [ngModel]="character?.saving_throws?.dexterity" 
+                    (ngModelChange)="updateSenses('truesight', $event)">
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div>
+                    <span>passive_perception</span>
+                    <input type="number" class="inputValue" 
+                    [ngModel]="character?.saving_throws?.constitution" 
+                    (ngModelChange)="updateSenses('passive_perception', $event)">
+                </div>
+            </td>
+            
+        </tr>
+    </tbody>
+</table>
