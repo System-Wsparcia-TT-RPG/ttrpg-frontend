@@ -118,13 +118,13 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.characterDataService.characters$.subscribe({
-      next: data => {
-        let temp = []
-        for (let [key, value] of data){
+      next: (data) => {
+        let temp = [];
+        for (let [key, value] of data) {
           temp.push(value);
         }
         this.characters = temp;
-      }
+      },
     });
   }
 
@@ -159,6 +159,7 @@ export class HomeComponent implements OnInit {
 
     console.log('created character');
     this.characters = this.characterDataService.characters;
+    this.selectedCharacterId = characterId;
   }
 
   async deleteCharacter() {

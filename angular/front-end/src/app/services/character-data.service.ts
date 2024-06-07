@@ -31,7 +31,7 @@ export class CharacterDataService {
 
   set characters(characters: Full<Character>[]) {
     // Modify this code for on-change behavior, e.g send request to the backend (or so I think :) )
-    this._characters.next(new Map(characters.map(x => [x.id, x])));
+    this._characters.next(new Map(characters.map((x) => [x.id, x])));
   }
 
   get currentCharacter(): Full<Character> {
@@ -41,9 +41,10 @@ export class CharacterDataService {
 
   set currentCharacter(character: Full<Character>) {
     // Modify this code for on-change behavior, e.g send request to the backend (or so I think :) )
-    this.characters = this.characters.map((x) =>
-      x.id == character.id ? character : x
-    );
+    let newCharacters = new Map(this._characters.value);
+    newCharacters.set(character.id, character);
+    this._characters.next(newCharacters);
+    this._charId.next(character.id);
   }
 
   get charId(): number {
@@ -61,19 +62,20 @@ export class CharacterDataService {
   constructor(private http: HttpClient, private userService: UserService) {}
 
   getCharacters(): Observable<Full<Character>[]> {
-
     if (!this.userService.isLoggedIn()) {
       return new Observable<Full<Character>[]>((subscriber) => {
         subscriber.error('User not logged in');
       });
     }
 
-    let resp = this.http.get<Full<Character>[]>(this.apiUrl + "/character/all/4/").pipe(
-      catchError((error) => {
-        console.error('Error fetching characters:', error);
-        throw 'Error fetching characters, see console';
-      })
-    );
+    let resp = this.http
+      .get<Full<Character>[]>(this.apiUrl + '/character/all/4/')
+      .pipe(
+        catchError((error) => {
+          console.error('Error fetching characters:', error);
+          throw 'Error fetching characters, see console';
+        })
+      );
 
     resp.subscribe({
       next: (data) => {
@@ -93,27 +95,25 @@ export class CharacterDataService {
   }
 
   getCharacter(id: number): Observable<Full<Character>> {
-    // not needed while keeping all the characters?
     let resp = this.http
-      .get<Full<Character>>(`${this.apiUrl}/character/${id}/4/`)
+      .get<Full<Character>[]>(`${this.apiUrl}/character/${id}/4/`)
       .pipe(
         catchError((error) => {
           console.error('Error fetching character:', error);
           throw 'Error fetching character, see console';
-        })
+        }),
+        map(x => x[0])
       );
     return resp;
   }
 
   deleteCharacter(id: number): Observable<void> {
-    let response = this.http
-      .delete(`${this.apiUrl}/character/${id}/`)
-      .pipe(
-        map((_) => {}),
-        finalize(() => {
-          this.characters = this.characters.filter((x) => x.id != id);
-        })
-      );
+    let response = this.http.delete(`${this.apiUrl}/character/${id}/`).pipe(
+      map((_) => {}),
+      finalize(() => {
+        this.characters = this.characters.filter((x) => x.id != id);
+      })
+    );
 
     return response;
   }
