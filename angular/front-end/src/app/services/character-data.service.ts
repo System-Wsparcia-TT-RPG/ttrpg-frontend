@@ -87,7 +87,7 @@ export class CharacterDataService {
   getCharacter(id: number): Observable<Full<Character>> {
     // not needed while keeping all the characters?
     let resp = this.http
-      .get<Full<Character>>(`${this.apiUrl}/api/character/${id}/4/`)
+      .get<Full<Character>>(`${this.apiUrl}/character/${id}/4/`)
       .pipe(
         catchError((error) => {
           console.error('Error fetching character:', error);

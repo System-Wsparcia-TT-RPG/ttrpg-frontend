@@ -4,6 +4,18 @@ type Tag<A> = { [__type]: A };
 export type Many<A> = number[] | Tag<A[]>;
 export type FK<A> = number | Tag<A>;
 
+export type Full1<T extends Model> = {
+  [K in keyof T]: T[K] extends Many<infer A extends Model>
+    ? Tag<A[]> extends T[K]
+      ? A[]
+      : T[K]
+    : T[K] extends FK<infer A extends Model>
+    ? Tag<A> extends T[K]
+      ? A
+      : T[K]
+    : T[K];
+};
+
 export type Full<T extends Model> = {
   [K in keyof T]: T[K] extends Many<infer A extends Model>
     ? Tag<A[]> extends T[K]
