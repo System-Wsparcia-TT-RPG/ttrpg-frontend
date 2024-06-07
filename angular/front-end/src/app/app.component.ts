@@ -11,12 +11,8 @@ import { CharacterDataService } from './services/character-data.service';
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
   constructor(private charData: CharacterDataService){}
-
-  ngOnInit(): void {
-    this.charData.getCharacters();
-  }
 
 }
 

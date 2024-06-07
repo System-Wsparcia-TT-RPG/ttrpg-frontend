@@ -37,14 +37,14 @@ export class LoginComponent {
       const userData = this.loginForm.value;
       const username = userData.username;
       const password = userData.password;
-      this.userService.login(username, password).subscribe(
-        () => {
+      this.userService.login(username, password).subscribe({
+        next: data => {
           // Successfully logged in
           this.characterDataService.getCharacters();
           console.log(this.characterDataService.characters);
           this.router.navigate(['/home']);
         },
-        (error) => {
+        error: async error => {
           if (error.status === 401) {
             this.incorrectCredentials = true;
             this.errorMessage = 'Incorrect username or password.';
@@ -53,7 +53,7 @@ export class LoginComponent {
           }
           this.loginForm.reset();
         }
-      );
+      });
     }
   }
 

@@ -117,7 +117,15 @@ export class HomeComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.characters = this.characterDataService.characters;
+    this.characterDataService.characters$.subscribe({
+      next: data => {
+        let temp = []
+        for (let [key, value] of data){
+          temp.push(value);
+        }
+        this.characters = temp;
+      }
+    });
   }
 
   isLogged() {
